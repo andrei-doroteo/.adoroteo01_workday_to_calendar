@@ -6,7 +6,8 @@ class Course:
     # name is String
     # location is String
 
-    def __init__(self, start=None, end=None, byday=None, name=None, location=None) -> None:
+    def __init__(self, start=None, end=None, byday=None,
+                  name=None, location=None) -> None:
         self.name=name
         self.start=start
         self.end=end
