@@ -194,3 +194,15 @@ def clean_room(room:str) -> str:
     """
     
     return room.replace("-", " ")
+
+
+
+def convert_date(date:str) -> str:
+    """
+    converts start or end date from workday (ex/ 2024-09-03)
+    and produces the date in YYYYMMDD format
+
+    CONSTRAINT: date must be in YYYY-MM-DD format
+    """
+
+    return date.replace("-", "")

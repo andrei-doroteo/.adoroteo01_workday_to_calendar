@@ -104,3 +104,9 @@ def test_clean_time_12pm_12am(): #!!! set the end day to next day
 
 def test_clean_room():
     assert info.clean_room("WESB-Floor 1-Room 100") == "WESB Floor 1 Room 100"
+
+
+### convert_date() tests
+
+def test_convert_date():
+    assert info.convert_date("2024-09-03") == "20240903"
