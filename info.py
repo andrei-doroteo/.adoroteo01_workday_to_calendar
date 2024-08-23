@@ -29,7 +29,7 @@ def get_name(section:str, name:str="") -> str:
 
 
 
-def handle_meeting_patterns(mp:str, days:str="",
+def handle_meeting_patterns(mp:str, dates:str="", days:str="",
                              time:str="", room:str="",
                                counter:int=0) -> dict:
     """
@@ -44,8 +44,11 @@ def handle_meeting_patterns(mp:str, days:str="",
 
     if mp == "": # base case
        times = clean_time(time)
+       dates = clean_dates(dates)
 
-       return {"days":clean_days(days),
+       return {"start_date":dates["start"],
+               "end_date":dates["end"],
+               "days":clean_days(days),
                "start_time": times["start"],
                "end_time": times["end"],
                "room":clean_room(room)}
@@ -53,29 +56,51 @@ def handle_meeting_patterns(mp:str, days:str="",
     else:
        if mp[0] == " " and mp[1] == "|" \
         and mp[2] == " ": # increase counter at seperator
-            return handle_meeting_patterns(mp=mp[3:], days=days,
+            return handle_meeting_patterns(mp=mp[3:], dates=dates, days=days,
                                             time=time, room=room,
-                                              counter = counter + 1)
+                                            counter = counter + 1)
        
        else:
-            if counter == 0: # ignore 1st section
-                return handle_meeting_patterns(mp=mp[1:], counter=counter)
+            if counter == 0: # add 1st section to dates.
+                return handle_meeting_patterns(mp=mp[1:],
+                                                dates = dates + mp[0],
+                                                counter=counter)
             
             elif counter == 1: # add 2nd section to days
-                return handle_meeting_patterns(mp=mp[1:],
+                return handle_meeting_patterns(mp=mp[1:], dates=dates,
                                                 days = days + mp[0],
-                                                  counter=counter)
+                                                counter=counter)
             
             elif counter == 2: # add 3rd section to time
-                return handle_meeting_patterns(mp=mp[1:], days=days,
+                return handle_meeting_patterns(mp=mp[1:], dates=dates,
+                                                days=days,
                                                 time = time + mp[0],
-                                                  counter=counter)
+                                                counter=counter)
             
             elif counter == 3: # add 4th section to room
-                return handle_meeting_patterns(mp=mp[1:], days=days,
+                return handle_meeting_patterns(mp=mp[1:], dates=dates,
+                                                days=days,
                                                 time=time, room = room + mp[0],
-                                                  counter=counter)
+                                                counter=counter)
 
+
+
+def clean_dates(dates:str) -> dict:
+    """
+    convert date span from workday meeting patterns into a dictionary
+    with a start and end date in the format YYYYMMMDD
+
+    """
+
+    def reformat(date:str) -> str:
+        return date.replace("-","")
+
+    # starting value: "2024-09-03 - 2024-12-06"
+
+    dates_split = dates.split(" - ")
+    converted_dates = list(map(reformat, dates_split))
+
+    return {"start":converted_dates[0], "end":converted_dates[1]}
 
 
 def clean_days(days:str) -> list:

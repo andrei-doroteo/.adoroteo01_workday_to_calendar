@@ -22,11 +22,13 @@ def test_get_name_no_break():
 ### handle_meeting_patterns() tests !!!
 
 def test_handle_meeting_patterns_3days_pm():
-    assert info.handle_meeting_patterns("mp=2024-09-03 - 2024-12-06 |"
+    assert info.handle_meeting_patterns("2024-09-03 - 2024-12-06 |"
                                         " Mon Wed Fri |"
                                         " 2:00 p.m. - 3:00 p.m. |"
                                         " WESB-Floor 1-Room 100") \
-    == {"days":["MO", "WE", "FR"],
+    == {"start_date":"20240903",
+        "end_date":"20241206",
+        "days":["MO", "WE", "FR"],
         "start_time":"140000",
         "end_time":"150000",
         "room":"WESB Floor 1 Room 100"}
@@ -35,7 +37,9 @@ def test_handle_meeting_patterns_1day_am_pm():
     assert info.handle_meeting_patterns(mp="2024-09-05 - 2024-12-05 |"
                                         " Thu | 11:00 a.m. - 12:00 p.m. |"
                                         " ESB-Floor 1-Room 1046") \
-    == {"days":["TH"],
+    == {"start_date":"20240905",
+        "end_date":"20241205",
+        "days":["TH"],
         "start_time":"110000",
         "end_time":"120000",
         "room":"ESB Floor 1 Room 1046"}
@@ -44,11 +48,19 @@ def test_handle_meeting_patterns_2days_am_am():
     assert info.handle_meeting_patterns(mp="2024-09-03 - 2024-12-05 |"
                                         " Tue Thu | 8:00 a.m. - 9:30 a.m. |"
                                         " HEBB-Floor 1-Room 100") \
-    == {"days":["TU", "TH"],
+    == {"start_date":"20240903",
+        "end_date":"20241205",
+        "days":["TU", "TH"],
         "start_time":"080000",
         "end_time":"093000",
         "room":"HEBB Floor 1 Room 100"}
 
+
+### clean_dates
+
+def test_clean_dates():
+    assert info.clean_dates("2024-09-03 - 2024-12-06") \
+    == {'start':"20240903", "end":"20241206"}
 
 
 ### clean_days() tests
