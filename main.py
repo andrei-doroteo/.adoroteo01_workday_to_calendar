@@ -1,47 +1,25 @@
-import pandas
-import icalendar
-from icalendar import Calendar, Event
-from  classes import *
+from pandas import DataFrame, read_excel
 
-### make a schedule
-
-schedule = Calendar()
-
-### get info from excel
-
-## clean excel sheet
-def get_info(path:str) -> pandas.DataFrame:
-    
-    # read excel file
-    dataframe = pandas.read_excel(path)
-
-    # filter columns
-    dataframe_filtered = filter_df(dataframe)
-
-    # parse columns
-    dataframe_parsed = parse_df(dataframe_filtered)
+import manipulator
+import scheduling
 
 
-def filter_df(df:pandas.DataFrame) -> pandas.DataFrame:
-    columns = []
-    pass
-
-def parse_df():
-    pass
-
-## get course name from excel
+def import_data(file: str) -> DataFrame:
+    """ """
+    data = read_excel(file, skiprows=2)
+    return data
 
 
+def convert_file(file: str) -> None:
+    data = import_data(file)
+
+    converted = manipulator.convert_all(data)
+    data_dict = converted.to_dict(orient='records')
+
+    cal_name = input("Save as: ")
+    scheduling.create_ical(data_dict,cal_name + ".ics")
 
 
-### make all courses in schedule
+path = input("Enter file path: ")
 
-def make_course(x:Course) -> Course:
-    pass
-#   EXCel -> Course
- # consumes a excel table and produces a Course with all its info
-
-### add all courses to schedule
-
-### download schedule as calendar file
-
+convert_file(path)
