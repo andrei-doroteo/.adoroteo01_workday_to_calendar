@@ -6,10 +6,8 @@
 
 from copy import deepcopy
 
-from pandas import DataFrame
-
 import conversions
-from classes import *
+from pandas import DataFrame
 
 
 def convert_all(data: DataFrame) -> DataFrame:
@@ -124,7 +122,7 @@ def split_course(course: dict) -> list[dict]:
 
     # {"Meeting Patterns":"m - p - 1\n\nm - p - 2"}
 
-    def has_two_meeting_patterns(course: Course) -> bool:
+    def has_two_meeting_patterns(course: dict) -> bool:
         return "\n\n" in course["Meeting Patterns"]
 
     if has_two_meeting_patterns(course):
