@@ -1,1 +1,1 @@
-web: python calendar_converter/manage.py runserver
+web: gunicorn calendar_converter.wsgi:apllication --log-file -
