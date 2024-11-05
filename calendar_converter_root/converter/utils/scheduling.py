@@ -8,14 +8,13 @@ from datetime import datetime, timedelta
 from icalendar import Calendar, Event, Timezone, TimezoneDaylight, TimezoneStandard
 
 
-def create_ical(class_schedule: dict, filename: str) -> None:
+def create_ical(class_schedule: dict) -> Calendar:
     """
     ## Inputs
     - class_schedule
         - A dict of a UBC converted ubc schedule
 
-    creates a calendar and adds all classes from class_schedule.
-    then downloads the calendar in .ics format.
+    creates a calendar and adds all classes from class_schedule
     """
 
     calendar = Calendar()
@@ -34,13 +33,15 @@ def create_ical(class_schedule: dict, filename: str) -> None:
 
     add_classes(class_schedule, calendar)
 
+    return calendar
+
     # Write to file
-    generate_file(filename, calendar)
+    # generate_file(filename, calendar)
 
 
-def generate_file(filename, calendar):
-    with open(filename, "wb") as f:
-        f.write(calendar.to_ical())
+# def generate_file(filename, calendar):
+#     with open(filename, "wb") as f:
+#         f.write(calendar.to_ical())
 
 
 def add_classes(class_schedule, calendar):
