@@ -1,1 +1,1 @@
-web: gunicorn calendar_converter.calendar_converter.wsgi --log-file -
+web: gunicorn my_project.wsgi --env DJANGO_SETTINGS_MODULE=my_project.settings --log-file -
