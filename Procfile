@@ -1,0 +1,1 @@
+web: python calendar_converter/manage.py runserver
