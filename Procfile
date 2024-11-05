@@ -1,1 +1,1 @@
-web: gunicorn calendar_converter.wsgi:apllication --log-file -
+web: gunicorn calendar_converter.calendar_converter.wsgi --log-file -
