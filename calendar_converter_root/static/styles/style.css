@@ -58,7 +58,7 @@ main {
   font-size: 12px;
 }
 
-.upload-file-button {
+.download-file-button {
   padding: 25.5px 109.5px;
   background-color: #075985;
   color: #F8FAFC;
@@ -71,7 +71,19 @@ main {
 }
 
 .disclaimer {
+  margin-top: 20px;
   font-size: 10px;
+}
+
+.upload-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.download-link {
+  display: flex;
+  flex-direction: column;
 }
 
 footer {

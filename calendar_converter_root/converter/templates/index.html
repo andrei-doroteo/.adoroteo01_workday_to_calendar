@@ -26,39 +26,49 @@
         <p>Download URL: {{ download_url }}</p>
         #} -->
         <section class="intro">
-            <strong><p class = "convert-schedule roboto-regular">Convert Your Schedule</p></strong>
-            <p class = "roboto-light home-call">Upload your UBC schedule from workday to convert it to a calendar file</p>
+            <strong>
+                <p class="convert-schedule roboto-regular">Convert Your Schedule</p>
+            </strong>
+            <p class="roboto-light home-call">Upload your UBC schedule from workday to convert it to a calendar file</p>
             <a href="https://wd10.myworkday.com/ubc/d/task/2998$28771.htmld" target="_blank">
-                <p class = "roboto-light find-schedule">Find your schedule here</p>
+                <p class="roboto-light find-schedule">Find your schedule here</p>
             </a>
         </section>
 
         <section class="file-uploader">
 
-            {% if not file_uploaded and not download_url %}
-            <form method="post" enctype="multipart/form-data">
+            <form  S method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <label for="file" class="roboto-regular">Upload your Excel file:</label>
-                <input class="file-picker roboto-light" type="file" name="file" id="file" accept=".xlsx, .xls">
-                <button type="submit" class="roboto-regular">Upload</button>
+                {% if not file_uploaded and not download_url %}
+                <div class="upload-buttons">
+                    <div>
+                        <label for="file" class="roboto-regular">Upload your Excel file:</label>
+                        <input class="file-picker roboto-light" type="file" name="file" id="file" accept=".xlsx, .xls">
+                    </div>
+                    <button type="submit" class="roboto-regular upload-button">Upload</button>
+                    <aside class="roboto-light disclaimer">By using this tool, you agree to our <a href="">Terms of
+                            Service.</a></aside>
+                </div>
+                {% endif %}
             </form>
-            {% endif %}
             {% if file_uploaded and download_url%}
-            <div id="download-link">
-                <a href="{{ download_url }}"><button class="upload-file-button roboto-regular">Download Schedule</button></a>
-                <br>
-                <a class="roboto-light upload-to-calendar" href="https://calendar.google.com/calendar/u/0/r/settings/export" target="_blank">Upload Schedule to
+            <div class="download-link">
+                <a href="{{ download_url }}"><button class="download-file-button roboto-regular">Download
+                        Schedule</button></a>
+                <a class="roboto-light upload-to-calendar disclaimer"
+                    href="https://calendar.google.com/calendar/u/0/r/settings/export" target="_blank">Upload
+                    Schedule to
                     Google Calendar</a>
             </div>
             {% endif %}
-            <aside class="roboto-light disclaimer">By using this tool, you agree to our <a href="">Terms of Service.</a></aside>
+
 
         </section>
     </main>
     <!-- footer  -->
     <footer>
         <section class="footer-content">
-        <p class="roboto-light disclaimer">This tool is not affiliated with The University of British Columbia.</p>
+            <p class="roboto-light disclaimer">This tool is not affiliated with The University of British Columbia.</p>
         </section>
     </footer>
 </body>
