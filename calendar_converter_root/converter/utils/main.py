@@ -2,8 +2,8 @@ from pandas import DataFrame, read_excel
 from django.core.files.uploadedfile import UploadedFile
 from icalendar import Calendar
 
-import manipulator
-import scheduling
+import converter.utils.manipulator as manipulator
+import converter.utils.scheduling as scheduling
 
 
 def import_data(file: UploadedFile) -> DataFrame:

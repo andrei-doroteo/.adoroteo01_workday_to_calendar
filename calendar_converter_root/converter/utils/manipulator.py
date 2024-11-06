@@ -6,7 +6,7 @@
 
 from copy import deepcopy
 
-import conversions
+import converter.utils.conversions as conversions
 from pandas import DataFrame
 
 

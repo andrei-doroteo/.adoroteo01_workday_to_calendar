@@ -19,12 +19,27 @@
         <section class="intro">
             <strong>Convert Your Schedule</strong>
             <p>Upload your UBC schedule from workday to convert it to a calendar file</p>
-            <a href="https://wd10.myworkday.com/ubc/d/task/2998$28771.htmld" target="_blank"><p>Find your schedule here</p></a>
+            <a href="https://wd10.myworkday.com/ubc/d/task/2998$28771.htmld" target="_blank">
+                <p>Find your schedule here</p>
+            </a>
         </section>
 
         <section class="file-uploader">
-            <button class="upload-file-button"><img src="{% static 'images/upload-icon.svg' %}" alt="Upload Icon">Upload Schedule</button>
-            <aside>By using this tool, you agree to our <a href="">Terms of Service.</a></aside>
+            {#<!-- <form action="{% url 'process_file' %}" method="post" enctype="multipart/form-data"> -->#}
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="file">Upload your Excel file:</label>
+                <input type="file" name="file" id="file" accept=".xlsx, .xls">
+                <button type="submit">Upload</button>
+            </form>
+
+            <!-- {#{% if file_name %}
+            <p>File processed: {{ file_name }}</p>
+            <a href="{% url 'download_file' file_name %}">Download .ics File</a>
+            {% endif %}
+            <button class="upload-file-button"><img src="{% static 'images/upload-icon.svg' %}" alt="Upload Icon">Upload
+                Schedule</button>
+            <aside>By using this tool, you agree to our <a href="">Terms of Service.</a></aside>#} -->
         </section>
     </main>
     <!-- footer  -->
