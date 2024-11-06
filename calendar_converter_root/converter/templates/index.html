@@ -16,8 +16,10 @@
     </header>
     <!-- main content -->
     <main>
+        <!-- {#
         <p>File Uploaded: {{ file_uploaded }}</p>
         <p>Download URL: {{ download_url }}</p>
+        #} -->
         <section class="intro">
             <strong>Convert Your Schedule</strong>
             <p>Upload your UBC schedule from workday to convert it to a calendar file</p>
@@ -40,8 +42,7 @@
                 <div id="download-link">
                     <a href="{{ download_url }}"><button class="upload-file-button">Download Schedule</button></a>
                     <br>
-                    <a href="https://calendar.google.com/calendar/r?cid={{ download_url }}
-                    " target="_blank">Upload Schedule to Google Calendar</a>
+                    <a href="https://calendar.google.com/calendar/u/0/r/settings/export" target="_blank">Upload Schedule to Google Calendar</a>
                 </div>
             {% endif %}
             <aside>By using this tool, you agree to our <a href="">Terms of Service.</a></aside>
