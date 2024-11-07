@@ -9,6 +9,12 @@ $medium: #CBD5E1;
     padding: 0;
 }
 
+// ---------------- PHONE ----------------
+
+/* Default styles */
+// body { // Base Font sized used for em
+//     font-size: 16px;
+// }
 
 header {
     background-color: $light;
@@ -18,17 +24,22 @@ header {
 
 }
 
+.header-logo {
+    width: 33%;
+    height: auto;
+}
+
 body {
     background-color: $background;
 }
 
 main {
-    padding: 0px 156px;
+    padding: 0px 10px;
 }
 
 .intro {
-    padding-top: 111px;
-    padding-bottom: 101px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 
     text-align: center;
 }
@@ -36,8 +47,8 @@ main {
 .file-uploader {
     padding-top: 110px;
     padding-bottom: 80px;
-    padding-left: 384px;
-    padding-right: 384px;
+    padding-left: 0px; // TODO:
+    padding-right: 0px; // TODO:
 
     background-color: $medium;
     border: 1px dashed $dark;
@@ -49,12 +60,13 @@ main {
     text-align: center;
 
 
-    margin-bottom: 186px;
+    margin-bottom: 100px; // TODO:
 }
 
+
 .intro {
-    margin-left: 360px;
-    margin-right: 360px;
+    margin-left: 0px; // TODO:
+    margin-right: 0px; // TODO:
 }
 
 .convert-schedule {
@@ -73,7 +85,7 @@ main {
 }
 
 .download-file-button {
-    padding: 25.5px 109.5px;
+    padding: 25.5px 30px;
     background-color: $accent;
     color: $light;
     border: 0px;
@@ -106,16 +118,363 @@ main {
 }
 
 footer {
-    padding-top: 280px;
+    padding-top: 150px;
     text-align: end;
     background-color: $accent;
     color: $light;
 }
 
 .footer-content {
-    padding: 0px 156px;
+    padding: 0px 50px;
     padding-bottom: 20px;
 }
+
+// ---------------- TABLET ----------------
+
+@media (min-width: 1024px) {
+
+    // body { // Base Font sized used for em
+    //     font-size: 18px;
+    // }
+    header {
+        background-color: $light;
+        flex-direction: column;
+        align-items: end;
+        box-shadow: 0px 2px 5px 0px rgba(#000000, 0.25);
+
+    }
+
+    body {
+        background-color: $background;
+    }
+
+    main {
+        padding: 0px 75px;
+    }
+
+    .intro {
+        padding-top: 111px;
+        padding-bottom: 101px;
+
+        text-align: center;
+    }
+
+    .file-uploader {
+        padding-top: 110px;
+        padding-bottom: 80px;
+        padding-left: 150px;
+        padding-right: 150px;
+
+        background-color: $medium;
+        border: 1px dashed $dark;
+        border-radius: 20px;
+
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+
+
+        margin-bottom: 120px;
+    }
+
+    .intro {
+        margin-left: 150px;
+        margin-right: 150px;
+    }
+
+    .convert-schedule {
+        font-size: 40px;
+    }
+
+    .home-call {
+        font-size: 16px;
+        padding: 0px 55px;
+        padding-top: 10px;
+        padding-bottom: 6px;
+    }
+
+    .find-schedule {
+        font-size: 12px;
+    }
+
+    .download-file-button {
+        padding: 15px 50px;
+        background-color: $accent;
+        color: $light;
+        border: 0px;
+
+        border-radius: 15px;
+    }
+
+    .file-picker {
+        size: 10px;
+    }
+
+    .disclaimer {
+        margin-top: 20px;
+        font-size: 10px;
+    }
+
+    .upload-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    // .upload-button {
+    //     margin: 0px 50px;
+    // }
+
+    .download-link {
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer {
+        padding-top: 280px;
+        text-align: end;
+        background-color: $accent;
+        color: $light;
+    }
+
+    .footer-content {
+        padding: 0px 156px;
+        padding-bottom: 20px;
+    }
+
+}
+
+
+// ---------------- SMALL DESKTOP ----------------
+@media (min-width: 1200px) {
+    // body { // Base Font sized used for em
+    //     font-size: 18px;
+    // }
+
+    header {
+        background-color: $light;
+        flex-direction: column;
+        align-items: end;
+        box-shadow: 0px 2px 5px 0px rgba(#000000, 0.25);
+
+    }
+
+    body {
+        background-color: $background;
+    }
+
+    main {
+        padding: 0px 156px;
+    }
+
+    .intro {
+        padding-top: 111px;
+        padding-bottom: 101px;
+
+        text-align: center;
+    }
+
+    .file-uploader {
+        padding-top: 110px;
+        padding-bottom: 80px;
+        padding-left: 384px;
+        padding-right: 384px;
+
+        background-color: $medium;
+        border: 1px dashed $dark;
+        border-radius: 20px;
+
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+
+
+        margin-bottom: 186px;
+    }
+
+    .intro {
+        margin-left: 160px;
+        margin-right: 160px;
+    }
+
+    .convert-schedule {
+        font-size: 40px;
+    }
+
+    .home-call {
+        font-size: 16px;
+        padding: 0px 55px;
+        padding-top: 10px;
+        padding-bottom: 6px;
+    }
+
+    .find-schedule {
+        font-size: 12px;
+    }
+
+    .download-file-button {
+        padding: 25.5px 109.5px;
+        background-color: $accent;
+        color: $light;
+        border: 0px;
+
+        border-radius: 15px;
+    }
+
+    .file-picker {
+        size: 10px;
+    }
+
+    .disclaimer {
+        margin-top: 20px;
+        font-size: 10px;
+    }
+
+    .upload-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    // .upload-button {
+    //     margin: 0px 50px;
+    // }
+
+    .download-link {
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer {
+        padding-top: 280px;
+        text-align: end;
+        background-color: $accent;
+        color: $light;
+    }
+
+    .footer-content {
+        padding: 0px 156px;
+        padding-bottom: 20px;
+    }
+}
+// ---------------- DESKTOP ----------------
+@media (min-width: 1800px) {
+    // body { // Base Font sized used for em
+    //     font-size: 18px;
+    // }
+
+    header {
+        background-color: $light;
+        flex-direction: column;
+        align-items: end;
+        box-shadow: 0px 2px 5px 0px rgba(#000000, 0.25);
+
+    }
+
+    body {
+        background-color: $background;
+    }
+
+    main {
+        padding: 0px 156px;
+    }
+
+    .intro {
+        padding-top: 111px;
+        padding-bottom: 101px;
+
+        text-align: center;
+    }
+
+    .file-uploader {
+        padding-top: 110px;
+        padding-bottom: 80px;
+        padding-left: 384px;
+        padding-right: 384px;
+
+        background-color: $medium;
+        border: 1px dashed $dark;
+        border-radius: 20px;
+
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+
+
+        margin-bottom: 186px;
+    }
+
+    .intro {
+        margin-left: 360px;
+        margin-right: 360px;
+    }
+
+    .convert-schedule {
+        font-size: 40px;
+    }
+
+    .home-call {
+        font-size: 16px;
+        padding: 0px 55px;
+        padding-top: 10px;
+        padding-bottom: 6px;
+    }
+
+    .find-schedule {
+        font-size: 12px;
+    }
+
+    .download-file-button {
+        padding: 25.5px 109.5px;
+        background-color: $accent;
+        color: $light;
+        border: 0px;
+
+        border-radius: 15px;
+    }
+
+    .file-picker {
+        size: 10px;
+    }
+
+    .disclaimer {
+        margin-top: 20px;
+        font-size: 10px;
+    }
+
+    .upload-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    // .upload-button {
+    //     margin: 0px 50px;
+    // }
+
+    .download-link {
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer {
+        padding-top: 280px;
+        text-align: end;
+        background-color: $accent;
+        color: $light;
+    }
+
+    .footer-content {
+        padding: 0px 156px;
+        padding-bottom: 20px;
+    }
+}
+
+
+// ---------------- FONTS ----------------
 
 .roboto-thin {
     font-family: "Roboto", sans-serif;
