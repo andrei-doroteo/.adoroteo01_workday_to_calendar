@@ -8,7 +8,8 @@ import converter.utils.scheduling as scheduling
 
 def import_data(file: UploadedFile) -> DataFrame:
     """ """
-    data = read_excel(file, skiprows=2)
+    data = read_excel(file, skiprows=5).dropna()[lambda df : df["Registration Status"] == "Registered"]
+    
     return data
 
 
