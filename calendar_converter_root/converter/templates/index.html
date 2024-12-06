@@ -20,21 +20,23 @@
     <!-- -------------------- -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}"> <!-- Eric Meyer's Reset -->
     <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <!-- ------ -->
     <title>UBC Schedule Converter</title>
+
+
 </head>
 
 <body>
-    <!-- header -->
+
     <header>
         <img class="header-logo" src="{% static 'images/logo-2.svg' %}" alt="UBC Schedule Converter Logo">
     </header>
-    <!-- main content -->
+
     <main>
-        <!-- {#
-        <p>File Uploaded: {{ file_uploaded }}</p>
-        <p>Download URL: {{ download_url }}</p>
-        #} -->
+
         <section class="intro">
             <strong>
                 <p class="convert-schedule roboto-regular">Convert Your Schedule</p>
@@ -45,17 +47,39 @@
             </a>
         </section>
 
+        <section class="instructions">
+            <div class="instruction-box">
+                <img src="{% static 'images/open-workday.svg' %}" alt="">
+                <p>Open Workday</p>
+            </div>
+
+            <img src="{% static 'images/arrow-forward.svg' %}" alt="">
+
+            <div class="instruction-box">
+                <img src="{% static 'images/open-workday.svg' %}" alt="">
+                <p>Download Schedule</p>
+            </div>
+
+            <img src="{% static 'images/arrow-forward.svg' %}" alt="">
+
+            <div class="instruction-box">
+                <img src="{% static 'images/open-workday.svg' %}" alt="">
+                <p>Convert</p>
+            </div>
+        </section>
+
         <section class="file-uploader">
 
             <form S method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% if not file_uploaded and not download_url %}
                 <div class="upload-buttons">
+                    <button type="submit" class="roboto-regular upload-button">Upload</button>
                     <div>
                         <label for="file" class="roboto-regular">Upload your Excel file:</label>
                         <input class="file-picker roboto-light" type="file" name="file" id="file" accept=".xlsx, .xls">
                     </div>
-                    <button type="submit" class="roboto-regular upload-button">Upload</button>
+
                     <aside class="roboto-light disclaimer">By using this tool, you agree to our <a href="">Terms of
                             Service.</a></aside>
                 </div>
@@ -74,13 +98,15 @@
 
 
         </section>
+
     </main>
-    <!-- footer  -->
+
     <footer>
         <section class="footer-content">
             <p class="roboto-light disclaimer">This tool is not affiliated with The University of British Columbia.</p>
         </section>
     </footer>
+
 </body>
 
 </html>

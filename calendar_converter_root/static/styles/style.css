@@ -30,7 +30,25 @@ main {
   text-align: center;
 }
 
+.instructions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.125rem;
+  margin-bottom: 50px;
+}
+
+.instruction-box {
+  display: flex;
+  width: 10rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
+}
+
 .file-uploader {
+  position: relative;
   padding-top: 110px;
   padding-bottom: 80px;
   padding-left: 0px;
@@ -85,6 +103,22 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.upload-button {
+  padding: 20px 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: red;
+  cursor: pointer;
+  border-radius: 1.25rem;
+  border: 1px dashed var(--Dark, #082F49);
+  background: var(--Medium, #CBD5E1);
+}
+
+.upload-button:hover {
+  background-color: #075985;
 }
 
 .download-link {
@@ -169,6 +203,10 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .upload-button {
+    right: 20px;
+    top: 20px;
   }
   .download-link {
     display: flex;
