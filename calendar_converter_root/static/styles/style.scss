@@ -5,9 +5,21 @@ $dark: #082F49;
 $background: #F1F5F9;
 $medium: #CBD5E1;
 
+// ---------------- Styles ----------------
 
-// ---------------- PHONE ----------------
 
+// ---------- Page ------------
+
+body {
+    background-color: $background;
+}
+
+main {
+    padding: 0px 156px;
+}
+
+
+// -------------- Header ----------
 
 header {
     background-color: $light;
@@ -22,22 +34,34 @@ header {
     height: auto;
 }
 
-body {
-    background-color: $background;
-}
-
-main {
-    padding: 0px 10px;
-}
+// ------------------ Body -----------------
 
 .intro {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 111px;
+    padding-bottom: 101px;
+
+    margin-left: 360px;
+    margin-right: 360px;
 
     text-align: center;
 }
 
-.instructions {
+.convert-schedule-header {
+    font-size: 40px;
+}
+
+.call-to-action {
+    font-size: 16px;
+    padding: 0px 55px;
+    padding-top: 10px;
+    padding-bottom: 6px;
+}
+
+.find-schedule-link {
+    font-size: 12px;
+}
+
+.instruction-section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,12 +79,12 @@ main {
     flex-shrink: 0;
 }
 
-.file-uploader {
+.file-upload-form {
     position: relative;
     padding-top: 110px;
     padding-bottom: 80px;
-    padding-left: 0px; // TODO:
-    padding-right: 0px; // TODO:
+    padding-left: 384px;
+    padding-right: 384px;
 
     background-color: $medium;
     border: 1px dashed $dark;
@@ -72,32 +96,16 @@ main {
     text-align: center;
 
 
-    margin-bottom: 100px; // TODO:
+    margin-bottom: 186px;
 }
 
-
-.intro {
-    margin-left: 0px; // TODO:
-    margin-right: 0px; // TODO:
-}
-
-.convert-schedule {
-    font-size: 40px;
-}
-
-.home-call {
-    font-size: 16px;
-    padding: 0px 55px;
-    padding-top: 10px;
-    padding-bottom: 6px;
-}
-
-.find-schedule {
-    font-size: 12px;
+#file-input {
+    display: inline;
+    // display: none; // NOTE: Implement hidden file input
 }
 
 .download-file-button {
-    padding: 25.5px 30px;
+    padding: 25.5px 109.5px;
     background-color: $accent;
     color: $light;
     border: 0px;
@@ -105,27 +113,17 @@ main {
     border-radius: 15px;
 }
 
-.file-picker {
-    size: 10px;
-}
-
 .disclaimer {
     margin-top: 20px;
     font-size: 10px;
 }
 
-.upload-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .upload-button {
-    padding: 20px 40px;
+    padding: 22px 103px;
     position: absolute;
     top: 20px;
     right: 20px;
-    color: red;
+    color: $dark;
     cursor: pointer;
     border-radius: 1.25rem;
     border: 1px dashed var(--Dark, #082F49);
@@ -134,216 +132,32 @@ main {
 }
 
 .upload-button:hover {
-    background-color: #075985;
+    background-color: $dark;
+    color: $light;
 
 }
 
-.download-link {
+.download-schedule-section {
     display: flex;
     flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
 }
 
+// ----------- Footer ------------
+
 footer {
-    padding-top: 150px;
+    padding-top: 280px;
     text-align: end;
     background-color: $accent;
     color: $light;
 }
 
 .footer-content {
-    padding: 0px 50px;
+    padding: 0px 156px;
     padding-bottom: 20px;
 }
-
-// ---------------- TABLET ----------------
-
-@media (min-width: 1024px) {
-
-
-    main {
-        padding: 0px 75px;
-    }
-
-    .intro {
-        padding-top: 111px;
-        padding-bottom: 101px;
-    }
-
-    .file-uploader {
-        padding-top: 110px;
-        padding-bottom: 80px;
-        padding-left: 150px;
-        padding-right: 150px;
-        margin-bottom: 120px;
-    }
-
-    .intro {
-        margin-left: 150px;
-        margin-right: 150px;
-    }
-
-    .home-call {
-        font-size: 16px;
-        padding: 0px 55px;
-        padding-top: 10px;
-        padding-bottom: 6px;
-    }
-
-    .find-schedule {
-        font-size: 12px;
-    }
-
-    .download-file-button {
-        padding: 15px 50px;
-    }
-
-
-    .disclaimer {
-        margin-top: 20px;
-        font-size: 10px;
-    }
-
-    .upload-button {
-        right: 20px;
-        top: 20px;
-    }
-
-    footer {
-        padding-top: 280px;
-    }
-
-    .footer-content {
-        padding: 0px 156px;
-        padding-bottom: 20px;
-    }
-
-}
-
-
-// ---------------- SMALL DESKTOP ----------------
-@media (min-width: 1200px) {
-
-    body {
-        background-color: $background;
-    }
-
-    main {
-        padding: 0px 156px;
-    }
-
-    .intro {
-        padding-top: 111px;
-        padding-bottom: 101px;
-    }
-
-    .file-uploader {
-        padding-top: 110px;
-        padding-bottom: 80px;
-        padding-left: 384px;
-        padding-right: 384px;
-
-
-        margin-bottom: 186px;
-    }
-
-    .intro {
-        margin-left: 160px;
-        margin-right: 160px;
-    }
-
-    .convert-schedule {
-        font-size: 40px;
-    }
-
-    .home-call {
-        font-size: 16px;
-        padding: 0px 55px;
-        padding-top: 10px;
-        padding-bottom: 6px;
-    }
-
-    .find-schedule {
-        font-size: 12px;
-    }
-
-    .download-file-button {
-        padding: 25.5px 109.5px;
-    }
-
-    .disclaimer {
-        margin-top: 20px;
-        font-size: 10px;
-    }
-
-    footer {
-        padding-top: 280px;
-    }
-
-    .footer-content {
-        padding: 0px 156px;
-        padding-bottom: 20px;
-    }
-}
-
-// ---------------- DESKTOP ----------------
-@media (min-width: 1800px) {
-
-    main {
-        padding: 0px 156px;
-    }
-
-    .intro {
-        padding-top: 111px;
-        padding-bottom: 101px;
-    }
-
-    .file-uploader {
-        padding-top: 110px;
-        padding-bottom: 80px;
-        padding-left: 384px;
-        padding-right: 384px;
-        margin-bottom: 186px;
-    }
-
-    .intro {
-        margin-left: 360px;
-        margin-right: 360px;
-    }
-
-    .convert-schedule {
-        font-size: 40px;
-    }
-
-    .home-call {
-        font-size: 16px;
-        padding: 0px 55px;
-        padding-top: 10px;
-        padding-bottom: 6px;
-    }
-
-    .find-schedule {
-        font-size: 12px;
-    }
-
-    .download-file-button {
-        padding: 25.5px 109.5px;
-    }
-
-    .disclaimer {
-        margin-top: 20px;
-        font-size: 10px;
-    }
-
-    footer {
-        padding-top: 280px;
-    }
-
-    .footer-content {
-        padding: 0px 156px;
-        padding-bottom: 20px;
-    }
-}
-
 
 // ---------------- FONTS ----------------
 

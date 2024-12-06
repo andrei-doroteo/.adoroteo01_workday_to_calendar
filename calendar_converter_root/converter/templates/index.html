@@ -29,7 +29,7 @@
 
 </head>
 
-<body>
+<body class="roboto-regular">
 
     <header>
         <img class="header-logo" src="{% static 'images/logo-2.svg' %}" alt="UBC Schedule Converter Logo">
@@ -39,15 +39,16 @@
 
         <section class="intro">
             <strong>
-                <p class="convert-schedule roboto-regular">Convert Your Schedule</p>
+                <p class="convert-schedule-header roboto-regular">Convert Your Schedule</p>
             </strong>
-            <p class="roboto-light home-call">Upload your UBC schedule from workday to convert it to a calendar file</p>
+            <p class="roboto-light call-to-action">Upload your UBC schedule from workday to convert it to a calendar
+                file</p>
             <a href="https://wd10.myworkday.com/ubc/d/task/2998$28771.htmld" target="_blank">
-                <p class="roboto-light find-schedule">Find your schedule here</p>
+                <p class="roboto-light find-schedule-link">Find your schedule here</p>
             </a>
         </section>
 
-        <section class="instructions">
+        <section class="instruction-section">
             <div class="instruction-box">
                 <img src="{% static 'images/open-workday.svg' %}" alt="">
                 <p>Open Workday</p>
@@ -68,25 +69,24 @@
             </div>
         </section>
 
-        <section class="file-uploader">
-
-            <form S method="post" enctype="multipart/form-data">
+        <section>
+            {% if not file_uploaded and not download_url %}
+            <form method="post" enctype="multipart/form-data" class="file-upload-form">
                 {% csrf_token %}
-                {% if not file_uploaded and not download_url %}
-                <div class="upload-buttons">
+                <div>
                     <button type="submit" class="roboto-regular upload-button">Upload</button>
                     <div>
                         <label for="file" class="roboto-regular">Upload your Excel file:</label>
-                        <input class="file-picker roboto-light" type="file" name="file" id="file" accept=".xlsx, .xls">
+                        <input id="file-input" type="file" name="file" id="file" accept=".xlsx, .xls" multiple>
                     </div>
 
                     <aside class="roboto-light disclaimer">By using this tool, you agree to our <a href="">Terms of
                             Service.</a></aside>
                 </div>
-                {% endif %}
             </form>
+            {% endif %}
             {% if file_uploaded and download_url%}
-            <div class="download-link">
+            <div class="download-schedule-section">
                 <a href="{{ download_url }}"><button class="download-file-button roboto-regular">Download
                         Schedule</button></a>
                 <a class="roboto-light upload-to-calendar disclaimer"
@@ -95,8 +95,6 @@
                     Google Calendar</a>
             </div>
             {% endif %}
-
-
         </section>
 
     </main>

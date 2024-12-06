@@ -1,9 +1,11 @@
-* {
-  margin: 0;
-  padding: 0;
+body {
+  background-color: #F1F5F9;
 }
 
-/* Default styles */
+main {
+  padding: 0px 156px;
+}
+
 header {
   background-color: #F8FAFC;
   flex-direction: column;
@@ -16,21 +18,30 @@ header {
   height: auto;
 }
 
-body {
-  background-color: #F1F5F9;
-}
-
-main {
-  padding: 0px 10px;
-}
-
 .intro {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 111px;
+  padding-bottom: 101px;
+  margin-left: 360px;
+  margin-right: 360px;
   text-align: center;
 }
 
-.instructions {
+.convert-schedule-header {
+  font-size: 40px;
+}
+
+.call-to-action {
+  font-size: 16px;
+  padding: 0px 55px;
+  padding-top: 10px;
+  padding-bottom: 6px;
+}
+
+.find-schedule-link {
+  font-size: 12px;
+}
+
+.instruction-section {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,51 +58,31 @@ main {
   flex-shrink: 0;
 }
 
-.file-uploader {
+.file-upload-form {
   position: relative;
   padding-top: 110px;
   padding-bottom: 80px;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 384px;
+  padding-right: 384px;
   background-color: #CBD5E1;
   border: 1px dashed #082F49;
   border-radius: 20px;
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 186px;
 }
 
-.intro {
-  margin-left: 0px;
-  margin-right: 0px;
-}
-
-.convert-schedule {
-  font-size: 40px;
-}
-
-.home-call {
-  font-size: 16px;
-  padding: 0px 55px;
-  padding-top: 10px;
-  padding-bottom: 6px;
-}
-
-.find-schedule {
-  font-size: 12px;
+#file-input {
+  display: inline;
 }
 
 .download-file-button {
-  padding: 25.5px 30px;
+  padding: 25.5px 109.5px;
   background-color: #075985;
   color: #F8FAFC;
   border: 0px;
   border-radius: 15px;
-}
-
-.file-picker {
-  size: 10px;
 }
 
 .disclaimer {
@@ -99,18 +90,12 @@ main {
   font-size: 10px;
 }
 
-.upload-buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .upload-button {
-  padding: 20px 40px;
+  padding: 22px 103px;
   position: absolute;
   top: 20px;
   right: 20px;
-  color: red;
+  color: #082F49;
   cursor: pointer;
   border-radius: 1.25rem;
   border: 1px dashed var(--Dark, #082F49);
@@ -118,273 +103,29 @@ main {
 }
 
 .upload-button:hover {
-  background-color: #075985;
+  background-color: #082F49;
+  color: #F8FAFC;
 }
 
-.download-link {
+.download-schedule-section {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 footer {
-  padding-top: 150px;
+  padding-top: 280px;
   text-align: end;
   background-color: #075985;
   color: #F8FAFC;
 }
 
 .footer-content {
-  padding: 0px 50px;
+  padding: 0px 156px;
   padding-bottom: 20px;
 }
 
-@media (min-width: 1024px) {
-  header {
-    background-color: #F8FAFC;
-    flex-direction: column;
-    align-items: end;
-    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
-  }
-  body {
-    background-color: #F1F5F9;
-  }
-  main {
-    padding: 0px 75px;
-  }
-  .intro {
-    padding-top: 111px;
-    padding-bottom: 101px;
-    text-align: center;
-  }
-  .file-uploader {
-    padding-top: 110px;
-    padding-bottom: 80px;
-    padding-left: 150px;
-    padding-right: 150px;
-    background-color: #CBD5E1;
-    border: 1px dashed #082F49;
-    border-radius: 20px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 120px;
-  }
-  .intro {
-    margin-left: 150px;
-    margin-right: 150px;
-  }
-  .convert-schedule {
-    font-size: 40px;
-  }
-  .home-call {
-    font-size: 16px;
-    padding: 0px 55px;
-    padding-top: 10px;
-    padding-bottom: 6px;
-  }
-  .find-schedule {
-    font-size: 12px;
-  }
-  .download-file-button {
-    padding: 15px 50px;
-    background-color: #075985;
-    color: #F8FAFC;
-    border: 0px;
-    border-radius: 15px;
-  }
-  .file-picker {
-    size: 10px;
-  }
-  .disclaimer {
-    margin-top: 20px;
-    font-size: 10px;
-  }
-  .upload-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .upload-button {
-    right: 20px;
-    top: 20px;
-  }
-  .download-link {
-    display: flex;
-    flex-direction: column;
-  }
-  footer {
-    padding-top: 280px;
-    text-align: end;
-    background-color: #075985;
-    color: #F8FAFC;
-  }
-  .footer-content {
-    padding: 0px 156px;
-    padding-bottom: 20px;
-  }
-}
-@media (min-width: 1200px) {
-  header {
-    background-color: #F8FAFC;
-    flex-direction: column;
-    align-items: end;
-    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
-  }
-  body {
-    background-color: #F1F5F9;
-  }
-  main {
-    padding: 0px 156px;
-  }
-  .intro {
-    padding-top: 111px;
-    padding-bottom: 101px;
-    text-align: center;
-  }
-  .file-uploader {
-    padding-top: 110px;
-    padding-bottom: 80px;
-    padding-left: 384px;
-    padding-right: 384px;
-    background-color: #CBD5E1;
-    border: 1px dashed #082F49;
-    border-radius: 20px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 186px;
-  }
-  .intro {
-    margin-left: 160px;
-    margin-right: 160px;
-  }
-  .convert-schedule {
-    font-size: 40px;
-  }
-  .home-call {
-    font-size: 16px;
-    padding: 0px 55px;
-    padding-top: 10px;
-    padding-bottom: 6px;
-  }
-  .find-schedule {
-    font-size: 12px;
-  }
-  .download-file-button {
-    padding: 25.5px 109.5px;
-    background-color: #075985;
-    color: #F8FAFC;
-    border: 0px;
-    border-radius: 15px;
-  }
-  .file-picker {
-    size: 10px;
-  }
-  .disclaimer {
-    margin-top: 20px;
-    font-size: 10px;
-  }
-  .upload-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .download-link {
-    display: flex;
-    flex-direction: column;
-  }
-  footer {
-    padding-top: 280px;
-    text-align: end;
-    background-color: #075985;
-    color: #F8FAFC;
-  }
-  .footer-content {
-    padding: 0px 156px;
-    padding-bottom: 20px;
-  }
-}
-@media (min-width: 1800px) {
-  header {
-    background-color: #F8FAFC;
-    flex-direction: column;
-    align-items: end;
-    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
-  }
-  body {
-    background-color: #F1F5F9;
-  }
-  main {
-    padding: 0px 156px;
-  }
-  .intro {
-    padding-top: 111px;
-    padding-bottom: 101px;
-    text-align: center;
-  }
-  .file-uploader {
-    padding-top: 110px;
-    padding-bottom: 80px;
-    padding-left: 384px;
-    padding-right: 384px;
-    background-color: #CBD5E1;
-    border: 1px dashed #082F49;
-    border-radius: 20px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 186px;
-  }
-  .intro {
-    margin-left: 360px;
-    margin-right: 360px;
-  }
-  .convert-schedule {
-    font-size: 40px;
-  }
-  .home-call {
-    font-size: 16px;
-    padding: 0px 55px;
-    padding-top: 10px;
-    padding-bottom: 6px;
-  }
-  .find-schedule {
-    font-size: 12px;
-  }
-  .download-file-button {
-    padding: 25.5px 109.5px;
-    background-color: #075985;
-    color: #F8FAFC;
-    border: 0px;
-    border-radius: 15px;
-  }
-  .file-picker {
-    size: 10px;
-  }
-  .disclaimer {
-    margin-top: 20px;
-    font-size: 10px;
-  }
-  .upload-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .download-link {
-    display: flex;
-    flex-direction: column;
-  }
-  footer {
-    padding-top: 280px;
-    text-align: end;
-    background-color: #075985;
-    color: #F8FAFC;
-  }
-  .footer-content {
-    padding: 0px 156px;
-    padding-bottom: 20px;
-  }
-}
 .roboto-thin {
   font-family: "Roboto", sans-serif;
   font-weight: 100;
