@@ -75,8 +75,10 @@
                 {% csrf_token %}
                 <div>
                     <button type="submit" class="roboto-regular upload-button">Upload</button>
-                    <div>
-                        <label for="file" class="roboto-regular">Upload your Excel file:</label>
+                    <img src="{% static 'images/upload-icon.svg'%}" alt="">
+                    <p class="file-name"><strong>View_My_Courses.xlsx</strong></p>
+                    <div class="file-input-div">
+                        <label for="file" class="roboto-regular">Drag and drop file to upload</label>
                         <input id="file-input" type="file" name="file" id="file" accept=".xlsx, .xls">
                     </div>
 
@@ -84,6 +86,10 @@
                             Service.</a></aside>
                 </div>
             </form>
+            <div class="or-browse-section">
+                <p>or</p>
+                <button class="browse-files-button">Browse Files</button>
+            </div>
             {% endif %}
             {% if file_uploaded and download_url%}
             <div class="download-schedule-section">

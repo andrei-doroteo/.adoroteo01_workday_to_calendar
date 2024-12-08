@@ -78,7 +78,6 @@ header {
     flex-direction: column;
     align-items: center;
     gap: 0.625rem;
-    flex-shrink: 0;
 }
 
 .instruction-gif {
@@ -107,26 +106,7 @@ header {
     text-align: center;
 
 
-    margin-bottom: 186px;
-}
-
-#file-input {
-    display: inline;
-    // display: none; // NOTE: Implement hidden file input
-}
-
-.download-file-button {
-    padding: 25.5px 109.5px;
-    background-color: $accent;
-    color: $light;
-    border: 0px;
-
-    border-radius: 15px;
-}
-
-.disclaimer {
-    margin-top: 20px;
-    font-size: 10px;
+    margin-bottom: 10px;
 }
 
 .upload-button {
@@ -148,6 +128,45 @@ header {
 
 }
 
+.file-name {
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.file-input-div {
+    margin-top: 30px;
+}
+
+#file-input {
+    // display: inline;
+    display: none; // NOTE: Implement hidden file input
+}
+
+.disclaimer {
+    margin-top: 20px;
+    font-size: 10px;
+}
+
+.or-browse-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    gap: 20px;
+}
+
+.browse-files-button {
+    
+    width: 17.4375rem;
+    height: 3.75rem;
+    
+
+    border-radius: 2.4375rem;
+    background: $accent;
+    color: $light;
+}
+
 .download-schedule-section {
     display: flex;
     flex-direction: column;
@@ -156,9 +175,19 @@ header {
     justify-content: center;
 }
 
+.download-file-button {
+    padding: 25.5px 109.5px;
+    background-color: $accent;
+    color: $light;
+    border: 0px;
+
+    border-radius: 15px;
+}
+
 // ----------- Footer ------------
 
 footer {
+    margin-top: 100px;
     padding-top: 280px;
     text-align: end;
     background-color: $accent;
