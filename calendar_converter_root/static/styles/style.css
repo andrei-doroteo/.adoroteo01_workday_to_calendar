@@ -82,6 +82,14 @@ header {
   margin-bottom: 10px;
 }
 
+.file-upload-form.over {
+  background-color: #075985;
+}
+
+.upload-button.over {
+  background-color: #075985;
+}
+
 .upload-button {
   padding: 22px 103px;
   position: absolute;

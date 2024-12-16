@@ -97,6 +97,7 @@ header {
     padding-right: 384px;
 
     background-color: $medium;
+    // background-color: #000000;
     border: 1px dashed $dark;
     border-radius: 20px;
 
@@ -107,6 +108,14 @@ header {
 
 
     margin-bottom: 10px;
+}
+
+.file-upload-form.over {
+    background-color: $accent;
+}
+
+.upload-button.over {
+    background-color: $accent;
 }
 
 .upload-button {

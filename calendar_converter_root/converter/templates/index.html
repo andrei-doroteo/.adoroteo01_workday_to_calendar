@@ -71,15 +71,15 @@
 
         <section>
             {% if not file_uploaded and not download_url %}
-            <form method="post" enctype="multipart/form-data" class="file-upload-form">
+            <form method="post" enctype="multipart/form-data" class="file-upload-form" id="file-upload-form">
                 {% csrf_token %}
                 <div>
-                    <button type="submit" class="roboto-regular upload-button">Upload</button>
+                    <button type="submit" class="roboto-regular upload-button" id="upload-button">Upload</button>
                     <img src="{% static 'images/upload-icon.svg'%}" alt="">
-                    <p class="file-name"><strong>View_My_Courses.xlsx</strong></p>
+                    <p class="file-name" id="file-name"><strong>- No File Chosen -</strong></p>
                     <div class="file-input-div">
                         <label for="file" class="roboto-regular">Drag and drop file to upload</label>
-                        <input id="file-input" type="file" name="file" id="file" accept=".xlsx, .xls">
+                        <input id="file-input" type="file" name="file" id="file-input" accept=".xlsx, .xls">
                     </div>
 
                     <aside class="roboto-light disclaimer">By using this tool, you agree to our <a href="">Terms of
@@ -88,7 +88,7 @@
             </form>
             <div class="or-browse-section">
                 <p>or</p>
-                <button class="browse-files-button">Browse Files</button>
+                <button class="browse-files-button" id="browse-files-button">Browse Files</button>
             </div>
             {% endif %}
             {% if file_uploaded and download_url%}
@@ -111,6 +111,7 @@
         </section>
     </footer>
 
+    <script src="{% static 'scripts/drag-and-drop.js' %}"></script>
 </body>
 
 </html>
