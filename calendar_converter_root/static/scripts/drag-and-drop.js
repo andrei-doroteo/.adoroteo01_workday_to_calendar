@@ -34,8 +34,10 @@ function fileUploadDrop(event) {
     const file = event.dataTransfer.files[0];
 
 
+
     if (file) {
         fileInput.files = event.dataTransfer.files; // Update input files
+        fileName.querySelector('strong').textContent = file.name; // TODO: make it so the name switches whenever the fileInput file is changed
     }
 }
 
@@ -47,6 +49,6 @@ function fileInputChange(event) {
 
     const file = fileInput.files[0];
     if (file) {
-        fileName.querySelector('strong').textContent = file.name;
+        fileName.querySelector('strong').textContent = file.name; // TODO: make it so the name switches whenever the fileInput file is changed
     }
 }
