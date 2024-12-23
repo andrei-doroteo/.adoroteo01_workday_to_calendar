@@ -8,7 +8,54 @@ import converter.utils.scheduling as scheduling
 
 def import_data(file: UploadedFile) -> DataFrame:
     """ """
-    data = read_excel(file, skiprows=6)[lambda df : df["Registration Status"] == "Registered"]
+
+    def find_start(file: UploadedFile) -> int:
+        # TODO:
+        """
+        Inputs:
+        - file
+            - a file upload of a UBC workday class schedule
+
+        Returns:
+        - an int of the index of the begining row of (the column names) the schedule data
+
+        """
+
+        return 0 # stub
+    
+    def find_end(file: UploadedFile) -> int:
+        # TODO:
+        """
+        Inputs:
+        - file
+            - a file upload of a UBC workday class schedule
+
+        Returns:
+        - an int of the index of the ending row of the schedule data (the last enrolled course)
+
+        """
+
+        return 0 # stub
+    
+    def get_data (file: UploadedFile, start: int, end: int) -> DataFrame:
+        # TODO:
+        """
+        Inputs:
+        - file
+            - a file upload of a UBC workday class schedule
+
+        Returns:
+        - an int of the index of the ending row of the schedule data (the last enrolled course)
+
+        """
+
+        return  DataFrame({}) # stub
+
+
+    start = find_start(file)
+    end = find_end(file)
+
+    data = get_data(file, start, end)
     
     return data
 
