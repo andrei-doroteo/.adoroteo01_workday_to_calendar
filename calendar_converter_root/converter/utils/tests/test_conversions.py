@@ -1,6 +1,6 @@
 import sys
 sys.path.append("./")
-import conversions
+from .. import conversions
 
 ### get_name() tests
 

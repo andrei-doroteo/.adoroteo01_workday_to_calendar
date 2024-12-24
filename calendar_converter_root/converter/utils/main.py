@@ -21,6 +21,8 @@ def import_data(file: UploadedFile) -> DataFrame:
 
         """
 
+        
+
         return 0 # stub
     
     def find_end(file: UploadedFile) -> int:

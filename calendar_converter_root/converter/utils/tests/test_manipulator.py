@@ -1,13 +1,12 @@
 import sys
-
 sys.path.append("./")
 from copy import deepcopy
 
 from pandas import DataFrame, read_excel
 
-import manipulator
+from .. import manipulator
 
-dataframe = read_excel("data/View_My_Courses.xlsx", skiprows=2)
+dataframe = read_excel("data/View_My_Courses_1.xlsx", skiprows=2)
 data = dataframe.astype(str).to_dict(orient="records")
 
 ### split_meeting_patterns() tests
