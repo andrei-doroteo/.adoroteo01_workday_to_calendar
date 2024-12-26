@@ -1,8 +1,7 @@
 __pycache__
+*.pyc
 .ipynb_checkpoints
-.pytest_cache
 .venv
 .vscode
-tests\__pycache__
 launch.json
 temp.py
