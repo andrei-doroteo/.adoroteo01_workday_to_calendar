@@ -6,8 +6,9 @@
 
 from copy import deepcopy
 
-import converter.utils.conversions as conversions
 from pandas import DataFrame
+
+from converter.src.format import get_name, handle_meeting_patterns
 
 
 def convert_all(data: DataFrame) -> DataFrame:
@@ -27,7 +28,8 @@ def convert_all(data: DataFrame) -> DataFrame:
     columns in the schedule and converts
     them into the desired format
 
-    [1]: https://github.com/Adoroteo01/.adoroteo01_workday_to_calendar/blob/main/data/View_My_Courses.xlsx
+    [1]: (https://github.com/Adoroteo01/.adoroteo01_workday_to_calendar/
+    blob/main/data/View_My_Courses.xlsx)
     """
 
     def filter_data(data: DataFrame) -> DataFrame:
@@ -74,17 +76,17 @@ def split_meeting_patterns(schedule: list[dict]) -> list[dict]:
         a UBC workday schedule DataFrame. (see line 15)
 
     ## Returns
-    - a list of dicts with 2 dicts in place of any entry wuth 2 meeting 
+    - a list of dicts with 2 dicts in place of any entry wuth 2 meeting
     patterns
-    
+
     turns each dict with 2 entries in the 'Meeting Patterns' collumn
     into 2 seperate dicts with 1 entry in the 'Meeting Patterns'\
-    collumn. 
-    
+    collumn.
+
     split dicts are put in the same spot they were in the list.
     """
 
-    def merge_lists(lol: list[list[dict]], merged: list[dict] = []) -> list[dict]:
+    def merge_lists(lol: list[list[dict]], merged: list[dict]) -> list[dict]:
         """
         merges a 2d list into 1 list
         """
@@ -156,26 +158,24 @@ def convert_cols(data: DataFrame) -> None:
     ## Returns
     - None
 
-    converts the 'Section' and 'Meeting Patterns' collumn into the format
-    specified in conversions.py
+    converts the 'Section' and 'Meeting Patterns' collumn into the
+    format specified in data.py
     """
 
     # TODO: implement
     def convert_sections(data: DataFrame) -> None:
         """ """
 
-        data["Section"] = data["Section"].apply(conversions.get_name)
+        data["Section"] = data["Section"].apply(get_name)
 
     # TODO: implement
     def convert_meeting_patterns(data: DataFrame) -> None:
         """ """
 
         data["Meeting Patterns"] = (
-            data["Meeting Patterns"]
-            .astype(str)
-            .apply(conversions.handle_meeting_patterns)
+            data["Meeting Patterns"].astype(str).apply(handle_meeting_patterns)
         )
 
-    convert_sections(data)  # converted_schedule = list(map(convert, schedule))
+    convert_sections(data)
 
-    convert_meeting_patterns(data)  # converted_schedule = list(map(convert, schedule))
+    convert_meeting_patterns(data)
