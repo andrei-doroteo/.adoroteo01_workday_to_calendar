@@ -1,8 +1,9 @@
-import converter.utils.manipulator as manipulator
-import converter.utils.scheduling as scheduling
 from django.core.files.uploadedfile import UploadedFile
 from icalendar import Calendar
 from pandas import DataFrame
+
+import converter.utils.manipulator as manipulator
+import converter.utils.scheduling as scheduling
 
 
 def import_data(file: UploadedFile) -> DataFrame:
