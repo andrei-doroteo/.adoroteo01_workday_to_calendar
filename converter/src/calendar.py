@@ -5,7 +5,8 @@
 
 from datetime import datetime, timedelta
 
-from icalendar import Calendar, Event, Timezone, TimezoneDaylight, TimezoneStandard
+from icalendar import (Calendar, Event, Timezone, TimezoneDaylight,
+                       TimezoneStandard)
 
 
 def create_ical(class_schedule: dict) -> Calendar:
@@ -133,41 +134,3 @@ def create_timezone() -> Timezone:
     timezone = Timezone()
     timezone.add("tzid", "America/Vancouver")
     return timezone
-
-
-# # Example class schedule
-# class_schedule = [
-
-#     {
-#         "Section": "STAT 200 103",
-#         "Meeting Patterns":
-#             {
-#                 "start_date": "20240903",
-#                 "end_date": "20241206",
-#                 "days": ["MO", "WE", "FR"],
-#                 "start_time": "140000",
-#                 "end_time": "150000",
-#                 "room": "WESB Floor 1 Room 100",
-#             }
-#         ,
-#     }
-#     # {
-#     #     'class_name': 'Pharmacy 101',
-#     #     'start_time': datetime(2024, 10, 1, 9, 0, 0),  # Start time: Oct 1, 2024, 9:00 AM
-#     #     'end_time': datetime(2024, 10, 1, 10, 0, 0),   # End time: Oct 1, 2024, 10:00 AM
-#     #     'location': 'Room 204',
-#     #     'recurrence': True,  # Weekly class
-#     #     'recurrence_end': datetime(2024, 12, 15, 0, 0, 0)  # Ends on Dec 15, 2024
-#     #  }#,
-#     # {
-#     #     'class_name': 'Portuguese 101',
-#     #     'start_time': datetime(2024, 10, 3, 11, 0, 0),
-#     #     'end_time': datetime(2024, 10, 3, 12, 30, 0),
-#     #     'location': 'Room 310',
-#     #     'recurrence': True,
-#     #     'recurrence_end': datetime(2024, 12, 20, 0, 0, 0)
-#     # }
-# ]
-
-# # Generate the iCal file
-# create_ical(class_schedule, "my_class_schedule.ics")
