@@ -2,8 +2,8 @@ from django.core.files.uploadedfile import UploadedFile
 from icalendar import Calendar
 from pandas import DataFrame
 
-import converter.utils.manipulator as manipulator
-import converter.utils.scheduling as scheduling
+from converter.src.calendar import create_ical
+from converter.src.data import convert_all
 
 
 def import_data(file: UploadedFile) -> DataFrame:
@@ -71,7 +71,7 @@ def _get_data(file: UploadedFile, start: int, end: int) -> DataFrame:
 def convert_file(file: UploadedFile) -> Calendar:
     data = import_data(file)
 
-    converted = manipulator.convert_all(data)
+    converted = convert_all(data)
     data_dict = converted.to_dict(orient="records")
 
-    return scheduling.create_ical(data_dict)
+    return create_ical(data_dict)
