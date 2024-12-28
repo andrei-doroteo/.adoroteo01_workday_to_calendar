@@ -1,8 +1,11 @@
 import io
-from converter.utils.main import convert_file
+
 from django.core.files.storage import default_storage
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest
 from django.shortcuts import render
+
+from converter.src.converter import convert_file
+
 
 def home(request: HttpRequest):
     file_uploaded = False
@@ -12,8 +15,9 @@ def home(request: HttpRequest):
         try:
             # Get the uploaded file
             excel_file = request.FILES["file"]
-            
-            # Convert the file (may throw an exception if there's an error)
+
+            # Convert the file
+            # (may throw an exception if there's an error)
             calendar = convert_file(excel_file)
 
             # Convert Calendar to ICS format in memory
@@ -25,14 +29,26 @@ def home(request: HttpRequest):
             filename = "schedule.ics"
             path = default_storage.save(filename, ics_file)
 
-            # Set the file_uploaded flag to True and create a download URL
+            # Set the file_uploaded flag to True
+            # and create a download URL
             file_uploaded = True
             download_url = default_storage.url(path)
 
         except Exception as e:
             # Optional: Log or print the exception for debugging
             print(f"Error processing file: {e}")
-            return render(request, "index.html", {'file_uploaded': f"Error processing file: {e}", 'download_url': download_url})
+            return render(
+                request,
+                "index.html",
+                {
+                    "file_uploaded": f"Error processing file: {e}",
+                    "download_url": download_url,
+                },
+            )
 
     # Render the template and pass file_uploaded and download_url
-    return render(request, "index.html", {'file_uploaded': file_uploaded, 'download_url': download_url})
+    return render(
+        request,
+        "index.html",
+        {"file_uploaded": file_uploaded, "download_url": download_url},
+    )
