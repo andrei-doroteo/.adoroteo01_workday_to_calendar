@@ -2,7 +2,7 @@ import sys
 
 from pandas import read_excel
 
-from calendar_converter_root.converter.utils.main import import_data
+from calendar_converter_root.file_converter.utils.main import import_data
 
 sys.path.append("./")
 

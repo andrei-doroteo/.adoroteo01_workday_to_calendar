@@ -2,8 +2,8 @@ from django.core.files.uploadedfile import UploadedFile
 from icalendar import Calendar
 from pandas import DataFrame
 
-from converter.src.calendar import create_ical
-from converter.src.data import convert_all
+from .calendar import create_ical
+from .data import convert_all
 
 
 def import_data(file: UploadedFile) -> DataFrame:

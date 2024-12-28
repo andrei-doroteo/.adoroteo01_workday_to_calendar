@@ -8,7 +8,7 @@ from copy import deepcopy
 
 from pandas import DataFrame
 
-from converter.src.format import get_name, handle_meeting_patterns
+from .format import get_name, handle_meeting_patterns
 
 
 def convert_all(data: DataFrame) -> DataFrame:

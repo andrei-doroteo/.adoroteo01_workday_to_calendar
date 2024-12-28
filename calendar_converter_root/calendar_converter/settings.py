@@ -10,10 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
-from pathlib import Path
 import os
-import django_heroku
+from pathlib import Path
 
+import django_heroku
 
 # Ensure Django only sends cookies over HTTPS
 CSRF_COOKIE_SECURE = True
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "converter",
+    "file_converter",
 ]
 
 MIDDLEWARE = [

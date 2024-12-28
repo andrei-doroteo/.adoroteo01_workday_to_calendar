@@ -4,7 +4,9 @@ from django.core.files.storage import default_storage
 from django.http import HttpRequest
 from django.shortcuts import render
 
-from converter.src.converter import convert_file
+from packages.converter import convert_file
+
+# from converter import convert_file
 
 
 def home(request: HttpRequest):
