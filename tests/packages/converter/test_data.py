@@ -1,10 +1,16 @@
 import sys
+
 sys.path.append("./")
 from copy import deepcopy
 
 from pandas import DataFrame, read_excel
 
-from .. import manipulator
+from src.packages.converter.data import (
+    split_meeting_patterns,
+    split_course,
+    convert_all,
+    convert_cols,
+)
 
 dataframe = read_excel("data/View_My_Courses_1.xlsx", skiprows=2)
 data = dataframe.astype(str).to_dict(orient="records")
@@ -13,10 +19,14 @@ data = dataframe.astype(str).to_dict(orient="records")
 
 
 def test_split_meeting_patterns_2mp_2long():
-    assert manipulator.split_meeting_patterns(
+    assert split_meeting_patterns(
         [
-            {"Meeting Patterns": "meeting - pattern - 1\n\nmeeting - pattern - 2"},
-            {"Meeting Patterns": "meeting - pattern - 3\n\nmeeting - pattern - 4"},
+            {
+                "Meeting Patterns": "meeting - pattern - 1\n\nmeeting - pattern - 2"
+            },
+            {
+                "Meeting Patterns": "meeting - pattern - 3\n\nmeeting - pattern - 4"
+            },
         ]
     ) == [
         {"Meeting Patterns": "meeting - pattern - 1"},
@@ -27,7 +37,7 @@ def test_split_meeting_patterns_2mp_2long():
 
 
 def test_split_meeting_patterns_1mp_1long():
-    assert manipulator.split_meeting_patterns(data[4:5]) == data[4:5]
+    assert split_meeting_patterns(data[4:5]) == data[4:5]
 
 
 b = deepcopy(data[5:6]) + deepcopy(data[5:6])
@@ -40,7 +50,7 @@ b[1][
 
 
 def test_split_meeting_patterns_2mp_1long():
-    assert manipulator.split_meeting_patterns(data[5:6]) == b
+    assert split_meeting_patterns(data[5:6]) == b
 
 
 ### split_course() tests
@@ -48,14 +58,14 @@ def test_split_meeting_patterns_2mp_1long():
 
 def test_split_course_1_meeting_pattern():
 
-    assert manipulator.split_course({"Meeting Patterns": "m - p - 1"}) == [
+    assert split_course({"Meeting Patterns": "m - p - 1"}) == [
         {"Meeting Patterns": "m - p - 1"}
     ]
 
 
 def test_split_course_2_meeting_patterns():
 
-    assert manipulator.split_course({"Meeting Patterns": "m - p - 1\n\nm - p - 2"}) == [
+    assert split_course({"Meeting Patterns": "m - p - 1\n\nm - p - 2"}) == [
         {"Meeting Patterns": "m - p - 1"},
         {"Meeting Patterns": "m - p - 2"},
     ]
@@ -97,7 +107,7 @@ def test_split_course_1mp():
         }
     ]
 
-    assert manipulator.split_course(test_input) == expected_output
+    assert split_course(test_input) == expected_output
 
 
 def test_split_course_2mp():
@@ -148,7 +158,7 @@ def test_split_course_2mp():
         },
     ]
 
-    assert manipulator.split_course(test_input) == expected_output
+    assert split_course(test_input) == expected_output
 
 
 ### convert_cols() tests
@@ -178,7 +188,7 @@ def test_convert_cols_1long():
     }
 
     test_input = DataFrame(test_input)
-    manipulator.convert_cols(test_input)
+    convert_cols(test_input)
     expected_output = DataFrame(expected_output)
 
     assert expected_output.equals(test_input) == True
@@ -219,7 +229,7 @@ def test_convert_cols_2long():  # TODO:
     }
 
     test_input = DataFrame(test_input)
-    manipulator.convert_cols(test_input)
+    convert_cols(test_input)
     expected_output = DataFrame(expected_output)
 
     assert expected_output.equals(test_input)
@@ -234,7 +244,9 @@ def test_convert_all_1mp():
         "": [
             "Andrei Doroteo (41101338) - Faculty of Science (Vancouver)/Undergraduate (B.Sc.) - 2024-06-21 - Active - STAT_V 200 - Elementary Statistics for Applications - 2024-25 Winter Term 1 (UBC-V)"
         ],
-        "Course Listing": ["STAT_V 200 - Elementary Statistics for Applications"],
+        "Course Listing": [
+            "STAT_V 200 - Elementary Statistics for Applications"
+        ],
         "Credits": ["3"],
         "Grading Basis": ["Graded"],
         "Section": ["STAT_V 200-103 - Elementary Statistics for Applications"],
@@ -268,7 +280,7 @@ def test_convert_all_1mp():
     print(test_input)
     print(expected_ouput)
 
-    assert expected_ouput.equals(manipulator.convert_all(test_input)) == True
+    assert expected_ouput.equals(convert_all(test_input)) == True
 
 
 # test 1 long 2 meeting patterns
@@ -277,7 +289,9 @@ def test_convert_all_2mp():
         "": [
             "Andrei Doroteo (41101338) - Faculty of Science (Vancouver)/Undergraduate (B.Sc.) - 2024-06-21 - Active - STAT_V 200 - Elementary Statistics for Applications - 2024-25 Winter Term 1 (UBC-V)"
         ],
-        "Course Listing": ["STAT_V 200 - Elementary Statistics for Applications"],
+        "Course Listing": [
+            "STAT_V 200 - Elementary Statistics for Applications"
+        ],
         "Credits": ["3"],
         "Grading Basis": ["Graded"],
         "Section": ["STAT_V 200-103 - Elementary Statistics for Applications"],
@@ -316,7 +330,7 @@ def test_convert_all_2mp():
     test_input = DataFrame(test_input)
     expected_ouput = DataFrame(expected_ouput)
 
-    assert expected_ouput.equals(manipulator.convert_all(test_input)) == True
+    assert expected_ouput.equals(convert_all(test_input)) == True
 
 
 # test 2 long, second item has 2 meeting patterns
@@ -380,4 +394,4 @@ def test_convert_all_2long_2mp():
     test_input = DataFrame(test_input)
     expected_ouput = DataFrame(expected_ouput)
 
-    assert expected_ouput.equals(manipulator.convert_all(test_input)) == True
+    assert expected_ouput.equals(convert_all(test_input)) == True
