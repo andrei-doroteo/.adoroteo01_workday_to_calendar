@@ -34,7 +34,37 @@ def _find_start(file: UploadedFile) -> int:
 
     """
 
-    return 0  # stub
+    data = read_excel(file, header=None)
+
+    def _get_row_with_header() -> DataFrame:
+        """
+        Returns dataframe of row(s) in data that match the header row,
+        keeping the same index values as data
+        """
+        header = (
+            (data[0].isna())
+            & (data[1] == "Course Listing")
+            & (data[2] == "Credits")
+            & (data[3] == "Grading Basis")
+            & (data[4] == "Section")
+            & (data[5] == "Instructional Format")
+            & (data[6] == "Delivery Mode")
+            & (data[7] == "Meeting Patterns")
+            & (data[8] == "Registration Status")
+            & (data[9] == "Instructor")
+            & (data[10] == "Start Date")
+            & (data[11] == "End Date")
+        )
+        return data[header]
+
+    def _get_index_of_header() -> int:
+        """
+        Returns the index of the first row in data that contains all the
+        column names
+        """
+        return _get_row_with_header().index[0]
+
+    return _get_index_of_header()
 
 
 def _find_end(file: UploadedFile) -> int:

@@ -2,7 +2,8 @@ import sys
 
 from pandas import read_excel
 
-from src.packages.converter.transform import import_data, _find_start, _find_end
+from src.packages.converter.transform import (_find_end, _find_start,
+                                              import_data)
 
 sys.path.append("./")
 
