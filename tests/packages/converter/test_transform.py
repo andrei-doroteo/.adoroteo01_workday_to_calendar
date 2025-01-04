@@ -2,7 +2,7 @@ import sys
 
 from pandas import read_excel
 
-from src.packages.converter.transform import import_data, _find_start
+from src.packages.converter.transform import import_data, _find_start, _find_end
 
 sys.path.append("./")
 
@@ -23,8 +23,8 @@ def test_find_start():
 
 
 def test_find_end():
-    # TODO
-    pass
+    assert _find_end("data/View_My_Courses_1.xlsx") == 0
+    assert _find_end("data/View_My_Courses_2.xlsx") == 7
 
 
 def test_get_data():
