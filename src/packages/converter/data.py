@@ -99,7 +99,7 @@ def split_meeting_patterns(schedule: list[dict]) -> list[dict]:
 
     all_meeting_patterns_split = list(map(split_course, schedule))
 
-    merged_lists = merge_lists(lol=all_meeting_patterns_split)
+    merged_lists = merge_lists(lol=all_meeting_patterns_split, merged=[])
 
     return merged_lists  # merged_lists
 
