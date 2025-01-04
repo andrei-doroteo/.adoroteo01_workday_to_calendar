@@ -1,6 +1,6 @@
 from django.core.files.uploadedfile import UploadedFile
 from icalendar import Calendar
-from pandas import DataFrame
+from pandas import DataFrame, read_excel
 
 from .calendar import create_ical
 from .data import convert_all
@@ -19,9 +19,7 @@ def import_data(file: UploadedFile) -> DataFrame:
     start = _find_start(file)
     end = _find_end(file)
 
-    data = _get_data(file, start, end)
-
-    return data
+    return read_excel(file, skiprows=start, skipfooter=end)
 
 
 def _find_start(file: UploadedFile) -> int:
@@ -52,20 +50,6 @@ def _find_end(file: UploadedFile) -> int:
     """
 
     return 0  # stub
-
-
-def _get_data(file: UploadedFile, start: int, end: int) -> DataFrame:
-    # TODO:
-    """
-    Inputs:
-    - file: a file upload of a UBC workday class schedule
-
-    Returns:
-    - a dataframe of file's
-
-    """
-
-    return DataFrame({})  # stub
 
 
 def convert_file(file: UploadedFile) -> Calendar:

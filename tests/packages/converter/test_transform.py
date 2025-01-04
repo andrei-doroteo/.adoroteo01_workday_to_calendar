@@ -6,7 +6,7 @@ from src.packages.converter.transform import import_data, _find_start, _find_end
 
 sys.path.append("./")
 
-expected = read_excel("data/View_My_Courses_1.xlsx", skiprows=3)
+expected = read_excel("data/View_My_Courses_1.xlsx", skiprows=2)
 
 
 def test_import_data_desktop():
@@ -25,8 +25,3 @@ def test_find_start():
 def test_find_end():
     assert _find_end("data/View_My_Courses_1.xlsx") == 0
     assert _find_end("data/View_My_Courses_2.xlsx") == 7
-
-
-def test_get_data():
-    # TODO
-    pass
