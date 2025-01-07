@@ -1,3 +1,5 @@
+from re import search
+
 from django.core.files.uploadedfile import UploadedFile
 from icalendar import Calendar
 from pandas import DataFrame, read_excel
@@ -7,6 +9,7 @@ from .data import convert_all
 
 
 def import_data(file: UploadedFile) -> DataFrame:
+    # !!! REFACTOR
     """
     Inputs:
     - file: a file upload of a UBC workday class schedule
@@ -23,7 +26,6 @@ def import_data(file: UploadedFile) -> DataFrame:
 
 
 def _find_start(file: UploadedFile) -> int:
-    # TODO
     """
     Inputs:
     - file: a file upload of a UBC workday class schedule
@@ -68,18 +70,29 @@ def _find_start(file: UploadedFile) -> int:
 
 
 def _find_end(file: UploadedFile) -> int:
-    # TODO:
     """
     Inputs:
     - file: a file upload of a UBC workday class schedule
 
     Returns:
-    - an int of the index of the ending row of the schedule data
+    - the index of the ending row of the schedule data
     (the last enrolled course)
 
     """
 
-    return 0  # stub
+    start = _find_start(file)
+    data = read_excel(file, skiprows=start + 1, header=None)
+
+    pattern = "\w+ \w+ \(\d{8}\)"
+
+    index = 0
+    for val in data[0]:
+        if search(pattern, val) is None:
+            return len(data[0]) - index
+        else:
+            index += 1
+    else:
+        return 0
 
 
 def convert_file(file: UploadedFile) -> Calendar:
