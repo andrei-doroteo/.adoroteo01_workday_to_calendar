@@ -6,10 +6,10 @@ from copy import deepcopy
 from pandas import DataFrame, read_excel
 
 from src.packages.converter.data import (
-    split_meeting_patterns,
-    split_course,
     convert_all,
     convert_cols,
+    split_course,
+    split_meeting_patterns,
 )
 
 dataframe = read_excel("data/View_My_Courses_1.xlsx", skiprows=2)
@@ -394,4 +394,61 @@ def test_convert_all_2long_2mp():
     test_input = DataFrame(test_input)
     expected_ouput = DataFrame(expected_ouput)
 
-    assert expected_ouput.equals(convert_all(test_input)) == True
+    assert expected_ouput.equals(convert_all(test_input))
+
+
+# tests the case where a schedule has 2 courses and one course
+# has no room assignment
+def test_convert_all_2long_2mp_no_room():
+    test_input = {
+        "": [
+            "Sample Student (00000000) - Faculty of Science (Vancouver)/Undergraduate (B.Sc.) - 2024-06-21 - Active - ARCL_V 103 - Introduction to Archaeology:  Past perspectives and Future Promise - 2024-25 Winter Term 2 (UBC-V)",
+            "Sample Student (00000000) - Faculty of Science (Vancouver)/Undergraduate (B.Sc.) - 2024-06-21 - Active - CHEM_V 213 - Organic Chemistry - 2024-25 Winter Term 2 (UBC-V)",
+        ],
+        "Course Listing": [
+            "ARCL_V 103 - Introduction to Archaeology:  Past perspectives and Future Promise",
+            "CHEM_V 213 - Organic Chemistry",
+        ],
+        "Credits": ["3", "3"],
+        "Grading Basis": ["Graded", "Graded"],
+        "Section": [
+            "ARCL_V 103-D1C - Introduction to Archaeology:  Past perspectives and Future Promise",
+            "CHEM_V 213-201 - Organic Chemistry",
+        ],
+        "Instructional Format": ["Discussion", "Lecture"],
+        "Delivery Mode": ["In Person Learning", "In Person Learning"],
+        "Meeting Patterns": [
+            "2025-01-10 - 2025-02-14 | Fri | 11:00 a.m. - 12:00 p.m. |\n\n2025-02-28 - 2025-04-04 | Fri | 11:00 a.m. - 12:00 p.m. |",
+            "2025-01-06 - 2025-02-14 | Mon Wed Fri | 1:00 p.m. - 2:00 p.m. | WESB-Floor 1-Room 100\n\n2025-02-24 - 2025-04-07 | Mon Wed Fri | 1:00 p.m. - 2:00 p.m. | WESB-Floor 1-Room 100",
+        ],
+        "Registration Status": ["Registered", "Registered"],
+        "Instructor": ["Samantha Walker", "Jason Hein"],
+        "Start Date": ["1/7/2025", "1/6/2025"],
+        "End Date": ["4/8/2025", "4/7/2025"],
+    }
+    expected_ouput = {
+        "Section": ["ARCL 103 D1C", "CHEM 213 201"],
+        "Meeting Patterns": [
+            {
+                "start_date": "20250107",
+                "end_date": "20250408",
+                "days": ["FR"],
+                "start_time": "110000",
+                "end_time": "120000",
+                "room": "",
+            },
+            {
+                "start_date": "20250106",
+                "end_date": "20250407",
+                "days": ["MO", "WE", "FR"],
+                "start_time": "130000",
+                "end_time": "140000",
+                "room": "WESB Floor 1 Room 100",
+            },
+        ],
+    }
+
+    test_input = DataFrame(test_input)
+    expected_ouput = DataFrame(expected_ouput)
+
+    assert expected_ouput.equals(convert_all(test_input))
