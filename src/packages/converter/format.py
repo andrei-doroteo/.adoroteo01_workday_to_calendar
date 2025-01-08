@@ -46,61 +46,76 @@ def handle_meeting_patterns(
                  <time> <period> - <time> <period> | <room>-<floor>-<#>
     """
 
-    if mp == "":  # base case
-        times = clean_time(time)
-        dates = clean_dates(dates)
+    try:
+        if mp == "":  # base case
+            times = clean_time(time)
+            dates = clean_dates(dates)
 
-        return {
-            "start_date": dates["start"],
-            "end_date": dates["end"],
-            "days": clean_days(days),
-            "start_time": times["start"],
-            "end_time": times["end"],
-            "room": clean_room(room),
-        }
-
-    else:
-        if (
-            mp[0] == " " and mp[1] == "|" and mp[2] == " "
-        ):  # increase counter at seperator
-            return handle_meeting_patterns(
-                mp=mp[3:],
-                dates=dates,
-                days=days,
-                time=time,
-                room=room,
-                counter=counter + 1,
-            )
+            return {
+                "start_date": dates["start"],
+                "end_date": dates["end"],
+                "days": clean_days(days),
+                "start_time": times["start"],
+                "end_time": times["end"],
+                "room": clean_room(room),
+            }
 
         else:
-            if counter == 0:  # add 1st section to dates.
+            if (
+                mp[0] == " " and mp[1] == "|" and mp[2] == " "
+            ):  # increase counter at seperator
                 return handle_meeting_patterns(
-                    mp=mp[1:], dates=dates + mp[0], counter=counter
-                )
-
-            elif counter == 1:  # add 2nd section to days
-                return handle_meeting_patterns(
-                    mp=mp[1:], dates=dates, days=days + mp[0], counter=counter
-                )
-
-            elif counter == 2:  # add 3rd section to time
-                return handle_meeting_patterns(
-                    mp=mp[1:],
-                    dates=dates,
-                    days=days,
-                    time=time + mp[0],
-                    counter=counter,
-                )
-
-            elif counter == 3:  # add 4th section to room
-                return handle_meeting_patterns(
-                    mp=mp[1:],
+                    mp=mp[3:],
                     dates=dates,
                     days=days,
                     time=time,
-                    room=room + mp[0],
-                    counter=counter,
+                    room=room,
+                    counter=counter + 1,
                 )
+
+            else:
+                if counter == 0:  # add 1st section to dates.
+                    return handle_meeting_patterns(
+                        mp=mp[1:], dates=dates + mp[0], counter=counter
+                    )
+
+                elif counter == 1:  # add 2nd section to days
+                    return handle_meeting_patterns(
+                        mp=mp[1:],
+                        dates=dates,
+                        days=days + mp[0],
+                        counter=counter,
+                    )
+
+                elif counter == 2:  # add 3rd section to time
+                    return handle_meeting_patterns(
+                        mp=mp[1:],
+                        dates=dates,
+                        days=days,
+                        time=time + mp[0],
+                        counter=counter,
+                    )
+
+                elif counter == 3:  # add 4th section to room
+                    return handle_meeting_patterns(
+                        mp=mp[1:],
+                        dates=dates,
+                        days=days,
+                        time=time,
+                        room=room + mp[0],
+                        counter=counter,
+                    )
+    except (
+        IndexError
+    ):  # throws IndexError when there is no room assignment at the end
+        return handle_meeting_patterns(
+            mp="",
+            dates=dates,
+            days=days,
+            time=time,
+            room="",
+            counter=counter,
+        )
 
 
 def clean_dates(dates: str) -> dict:

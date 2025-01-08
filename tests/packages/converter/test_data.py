@@ -427,11 +427,24 @@ def test_convert_all_2long_2mp_no_room():
         "End Date": ["4/8/2025", "4/7/2025"],
     }
     expected_ouput = {
-        "Section": ["ARCL 103 D1C", "CHEM 213 201"],
+        "Section": [
+            "ARCL 103 D1C",
+            "ARCL 103 D1C",
+            "CHEM 213 201",
+            "CHEM 213 201",
+        ],
         "Meeting Patterns": [
             {
-                "start_date": "20250107",
-                "end_date": "20250408",
+                "start_date": "20250110",
+                "end_date": "20250214",
+                "days": ["FR"],
+                "start_time": "110000",
+                "end_time": "120000",
+                "room": "",
+            },
+            {
+                "start_date": "20250228",
+                "end_date": "20250404",
                 "days": ["FR"],
                 "start_time": "110000",
                 "end_time": "120000",
@@ -439,6 +452,14 @@ def test_convert_all_2long_2mp_no_room():
             },
             {
                 "start_date": "20250106",
+                "end_date": "20250214",
+                "days": ["MO", "WE", "FR"],
+                "start_time": "130000",
+                "end_time": "140000",
+                "room": "WESB Floor 1 Room 100",
+            },
+            {
+                "start_date": "20250224",
                 "end_date": "20250407",
                 "days": ["MO", "WE", "FR"],
                 "start_time": "130000",
