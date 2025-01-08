@@ -1,6 +1,12 @@
-from src.packages.converter.format import (clean_dates, clean_days, clean_room,
-                                           clean_time, convert_date, get_name,
-                                           handle_meeting_patterns)
+from src.packages.converter.format import (
+    clean_dates,
+    clean_days,
+    clean_room,
+    clean_time,
+    convert_date,
+    get_name,
+    handle_meeting_patterns,
+)
 
 
 def test_get_name():
@@ -68,6 +74,19 @@ def test_handle_meeting_patterns_2days_am_am():
         "start_time": "080000",
         "end_time": "093000",
         "room": "HEBB Floor 1 Room 100",
+    }
+
+
+def test_handle_meeting_patterns_no_room_assignment():
+    assert handle_meeting_patterns(
+        mp="2024-09-05 - 2024-12-05 |" " Thu | 11:00 a.m. - 12:00 p.m. |"
+    ) == {
+        "start_date": "20240905",
+        "end_date": "20241205",
+        "days": ["TH"],
+        "start_time": "110000",
+        "end_time": "120000",
+        "room": "",
     }
 
 
@@ -149,6 +168,7 @@ def test_clean_time_12pm_12am():  # !!! set the end day to next day
 
 def test_clean_room():
     assert clean_room("WESB-Floor 1-Room 100") == "WESB Floor 1 Room 100"
+    assert clean_room("") == ""
 
 
 def test_convert_date():
