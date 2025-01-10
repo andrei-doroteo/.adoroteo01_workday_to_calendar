@@ -1,283 +1,288 @@
 // ---------------- Colors ----------------
-$light: #F8FAFC;
+$light: #f8fafc;
 $accent: #075985;
-$dark: #082F49;
-$background: #F1F5F9;
-$medium: #CBD5E1;
+$dark: #082f49;
+$background: #f1f5f9;
+$medium: #cbd5e1;
 
 // ---------------- Styles ----------------
-
 
 // ---------- Page ------------
 
 body {
-    background-color: $background;
+	background-color: $background;
 }
 
 main {
-    padding: 0px 156px;
+	padding: 0px 156px;
 }
-
 
 // -------------- Header ----------
 
 header {
-    background-color: $light;
-    flex-direction: column;
-    align-items: end;
-    box-shadow: 0px 2px 5px 0px rgba(#000000, 0.25);
-
+	background-color: $light;
+	flex-direction: column;
+	align-items: end;
+	box-shadow: 0px 2px 5px 0px rgba(#000000, 0.25);
 }
 
 .header-logo {
-    width: 33%;
-    height: auto;
+	width: 33%;
+	height: auto;
 }
 
 // ------------------ Body -----------------
 
 .intro {
-    padding-top: 111px;
-    padding-bottom: 101px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 
-    margin-left: 360px;
-    margin-right: 360px;
+	margin: 0 361px;
+	margin-top: 230px;
 
-    text-align: center;
+	text-align: center;
 }
 
 .convert-schedule-header {
-    font-size: 40px;
+	font-size: 2.5rem;
 }
 
 .call-to-action {
-    font-size: 16px;
-    padding: 0px 55px;
-    padding-top: 10px;
-    padding-bottom: 6px;
+	font-size: 1rem;
+	padding: 0px 3.44rem;
+	margin-top: 1.25rem;
 }
 
-.find-schedule-link {
-    font-size: 12px;
+.find-schedule-button {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	font-size: 0.75rem;
+	width: 9.9375rem;
+	height: 1.875rem;
+	border-radius: 0.625rem;
+
+	background: $accent;
+	color: $light;
+
+	margin-top: 1.88rem;
 }
 
 .instruction-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
 
-    margin-bottom: 50px;
+	margin-bottom: 50px;
 
-    margin-top: 50px;
+	margin-top: 50px;
 }
 
 .instruction-box {
-    display: flex;
-    width: 20rem;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.625rem;
+	display: flex;
+	width: 20rem;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.625rem;
 }
 
 .instruction-gif {
-    width: 300px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	width: 300px;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .instruction-arrow {
-    width: 100px;
+	width: 100px;
 }
 
 .file-upload-form {
-    position: relative;
-    padding-top: 110px;
-    padding-bottom: 80px;
-    padding-left: 384px;
-    padding-right: 384px;
+	position: relative;
+	padding-top: 110px;
+	padding-bottom: 80px;
+	padding-left: 384px;
+	padding-right: 384px;
 
-    background-color: $medium;
-    // background-color: #000000;
-    border: 1px dashed $dark;
-    border-radius: 20px;
+	background-color: $medium;
+	// background-color: #000000;
+	border: 1px dashed $dark;
+	border-radius: 20px;
 
-    align-items: center;
-    justify-content: center;
+	align-items: center;
+	justify-content: center;
 
-    text-align: center;
+	text-align: center;
 
-
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .file-upload-form.over {
-    background-color: $accent;
+	background-color: $accent;
 }
 
 .upload-button.over {
-    background-color: $accent;
+	background-color: $accent;
 }
 
 .upload-button {
-    padding: 22px 103px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    color: $dark;
-    cursor: pointer;
-    border-radius: 1.25rem;
-    border: 1px dashed var(--Dark, #082F49);
-    background: var(--Medium, #CBD5E1);
-
+	padding: 22px 103px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	color: $dark;
+	cursor: pointer;
+	border-radius: 1.25rem;
+	border: 1px dashed var(--Dark, #082f49);
+	background: var(--Medium, #cbd5e1);
 }
 
 .upload-button:hover {
-    background-color: $dark;
-    color: $light;
-
+	background-color: $dark;
+	color: $light;
 }
 
 .file-name {
-    margin-top: 20px;
-    font-weight: 600;
+	margin-top: 20px;
+	font-weight: 600;
 }
 
 .file-input-div {
-    margin-top: 30px;
+	margin-top: 30px;
 }
 
 #file-input {
-    // display: inline;
-    display: none; // NOTE: Implement hidden file input
+	// display: inline;
+	display: none; // NOTE: Implement hidden file input
 }
 
 .disclaimer {
-    margin-top: 20px;
-    font-size: 10px;
+	margin-top: 20px;
+	font-size: 10px;
 }
 
 .or-browse-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    gap: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	gap: 20px;
 }
 
 .browse-files-button {
-    
-    width: 17.4375rem;
-    height: 3.75rem;
-    
+	width: 17.4375rem;
+	height: 3.75rem;
 
-    border-radius: 2.4375rem;
-    background: $accent;
-    color: $light;
+	border-radius: 2.4375rem;
+	background: $accent;
+	color: $light;
 }
 
 .download-schedule-section {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-    align-items: center;
-    justify-content: center;
+	align-items: center;
+	justify-content: center;
 }
 
 .download-file-button {
-    padding: 25.5px 109.5px;
-    background-color: $accent;
-    color: $light;
-    border: 0px;
+	padding: 25.5px 109.5px;
+	background-color: $accent;
+	color: $light;
+	border: 0px;
 
-    border-radius: 15px;
+	border-radius: 15px;
 }
 
 // ----------- Footer ------------
 
 footer {
-    margin-top: 100px;
-    padding-top: 280px;
-    text-align: end;
-    background-color: $accent;
-    color: $light;
+	margin-top: 100px;
+	padding-top: 280px;
+	text-align: end;
+	background-color: $accent;
+	color: $light;
 }
 
 .footer-content {
-    padding: 0px 156px;
-    padding-bottom: 20px;
+	padding: 0px 156px;
+	padding-bottom: 20px;
 }
 
 // ---------------- FONTS ----------------
 
 .roboto-thin {
-    font-family: "Roboto", sans-serif;
-    font-weight: 100;
-    font-style: normal;
+	font-family: "Roboto", sans-serif;
+	font-weight: 100;
+	font-style: normal;
 }
 
 .roboto-light {
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: normal;
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+	font-style: normal;
 }
 
 .roboto-regular {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	font-style: normal;
 }
 
 .roboto-medium {
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-style: normal;
+	font-family: "Roboto", sans-serif;
+	font-weight: 500;
+	font-style: normal;
 }
 
 .roboto-bold {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-style: normal;
+	font-family: "Roboto", sans-serif;
+	font-weight: 700;
+	font-style: normal;
 }
 
 .roboto-black {
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: normal;
+	font-family: "Roboto", sans-serif;
+	font-weight: 900;
+	font-style: normal;
 }
 
 .roboto-thin-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 100;
-    font-style: italic;
+	font-family: "Roboto", sans-serif;
+	font-weight: 100;
+	font-style: italic;
 }
 
 .roboto-light-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: italic;
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+	font-style: italic;
 }
 
 .roboto-regular-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: italic;
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	font-style: italic;
 }
 
 .roboto-medium-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-style: italic;
+	font-family: "Roboto", sans-serif;
+	font-weight: 500;
+	font-style: italic;
 }
 
 .roboto-bold-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-style: italic;
+	font-family: "Roboto", sans-serif;
+	font-weight: 700;
+	font-style: italic;
 }
 
 .roboto-black-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: italic;
+	font-family: "Roboto", sans-serif;
+	font-weight: 900;
+	font-style: italic;
 }
