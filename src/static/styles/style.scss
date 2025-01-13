@@ -38,7 +38,6 @@ header {
 	align-items: center;
 	flex-direction: column;
 
-	margin: 0 361px;
 	margin-top: 230px;
 
 	text-align: center;
@@ -46,11 +45,16 @@ header {
 
 .convert-schedule-header {
 	font-size: 2.5rem;
+	line-height: var(--Label-Large-Line-Height, 1.25rem);
+	letter-spacing: var(--Label-Large-Tracking, 0.00625rem);
 }
 
 .call-to-action {
 	font-size: 1rem;
-	padding: 0px 3.44rem;
+	line-height: 1.25rem;
+	letter-spacing: 0.00625rem;
+
+	margin: 0px 415px;
 	margin-top: 1.25rem;
 }
 
@@ -61,6 +65,15 @@ header {
 	align-items: center;
 
 	font-size: 0.75rem;
+	line-height: 1.25rem; /* 166.667% */
+	letter-spacing: 0.00625rem;
+	text-decoration-line: underline;
+	text-decoration-style: solid;
+	text-decoration-skip-ink: none;
+	text-decoration-thickness: auto;
+	text-underline-offset: auto;
+	text-underline-position: from-font;
+
 	width: 9.9375rem;
 	height: 1.875rem;
 	border-radius: 0.625rem;
@@ -68,7 +81,7 @@ header {
 	background: $accent;
 	color: $light;
 
-	margin-top: 1.88rem;
+	margin-top: 2.12rem;
 }
 
 .instruction-section {
@@ -91,6 +104,7 @@ header {
 
 .instruction-gif {
 	width: 15rem;
+	max-width: 300px;
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
