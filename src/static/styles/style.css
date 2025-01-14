@@ -24,6 +24,7 @@ header {
   flex-direction: column;
   margin-top: 230px;
   text-align: center;
+  color: #082f49;
 }
 
 .convert-schedule-header {
@@ -68,6 +69,7 @@ header {
   justify-content: center;
   align-items: center;
   gap: 1.12rem;
+  color: #082f49;
   margin-top: 3.5rem;
 }
 
