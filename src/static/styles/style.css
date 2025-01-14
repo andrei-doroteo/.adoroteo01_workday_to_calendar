@@ -91,30 +91,31 @@ header {
 
 .file-upload-form {
   position: relative;
-  padding-top: 110px;
-  padding-bottom: 80px;
-  padding-left: 384px;
-  padding-right: 384px;
+  width: 100%;
+  padding: 6.5rem 0;
+  max-height: 404px;
+  color: #082f49;
   background-color: #cbd5e1;
   border: 1px dashed #082f49;
   border-radius: 20px;
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-bottom: 10px;
+  font-size: 1rem;
+  margin-top: 3.2rem;
 }
 
 .file-upload-form.over {
   background-color: #075985;
 }
 
-.upload-button.over {
-  background-color: #075985;
-}
-
-.upload-button {
-  padding: 22px 103px;
+.browse-files-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
+  width: 15.6875rem;
+  height: 4rem;
   top: 20px;
   right: 20px;
   color: #082f49;
@@ -124,18 +125,30 @@ header {
   background: var(--Medium, #cbd5e1);
 }
 
-.upload-button:hover {
+.browse-files-button:hover {
   background-color: #082f49;
   color: #f8fafc;
 }
 
+.browse-files-button.over {
+  background-color: #075985;
+}
+
+.upload-icon {
+  width: 2.9375rem;
+  height: 2.84938rem;
+}
+
 .file-name {
-  margin-top: 20px;
-  font-weight: 600;
+  margin-top: 0.37rem;
+  line-height: var(--Label-Large-Line-Height, 1.25rem); /* 142.857% */
+  letter-spacing: var(--Label-Large-Tracking, 0.00625rem);
 }
 
 .file-input-div {
-  margin-top: 30px;
+  margin-top: 0.25rem;
+  line-height: var(--Label-Large-Line-Height, 1.25rem); /* 142.857% */
+  letter-spacing: var(--Label-Large-Tracking, 0.00625rem);
 }
 
 #file-input {
@@ -143,24 +156,31 @@ header {
 }
 
 .disclaimer {
-  margin-top: 20px;
-  font-size: 10px;
+  font-size: 0.625rem;
+  line-height: 1.25rem; /* 200% */
+  letter-spacing: 0.00625rem;
 }
 
-.or-browse-section {
+.upload-button-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  margin-top: 1.88rem;
 }
 
-.browse-files-button {
+.upload-button {
   width: 17.4375rem;
   height: 3.75rem;
   border-radius: 2.4375rem;
   background: #075985;
   color: #f8fafc;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.upload-button:hover {
+  background-color: #082f49;
 }
 
 .download-schedule-section {

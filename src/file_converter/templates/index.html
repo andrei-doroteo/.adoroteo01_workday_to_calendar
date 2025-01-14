@@ -85,7 +85,7 @@
 						class="instruction-gif"
 						alt=""
 					/>
-					<p class="roboto-regular">Download Schedule</p>
+					<p>Download Schedule</p>
 				</div>
 
 				<img
@@ -100,7 +100,7 @@
 						class="instruction-gif"
 						alt=""
 					/>
-					<p class="roboto-regular">Convert</p>
+					<p>Convert</p>
 				</div>
 			</section>
 
@@ -114,22 +114,22 @@
 				>
 					{% csrf_token %}
 					<div>
-						<button
-							type="submit"
-							class="roboto-regular upload-button"
-							id="upload-button"
+						<div
+							class="browse-files-button"
+							id="browse-files-button"
 						>
-							Upload
-						</button>
+							<p>Or Browse Files</p>
+						</div>
 						<img
 							src="{% static 'images/upload-icon.svg'%}"
+							class="upload-icon"
 							alt=""
 						/>
-						<p class="file-name" id="file-name">
+						<p class="file-name roboto-bold" id="file-name">
 							<strong>- No File Chosen -</strong>
 						</p>
 						<div class="file-input-div">
-							<label for="file" class="roboto-regular"
+							<label for="file" class="roboto-bold"
 								>Drag and drop file to upload</label
 							>
 							<input
@@ -147,13 +147,14 @@
 						</aside>
 					</div>
 				</form>
-				<div class="or-browse-section">
-					<p>or</p>
+				<div class="upload-button-section">
 					<button
-						class="browse-files-button"
-						id="browse-files-button"
+						type="submit"
+						form="file-upload-form"
+						class="roboto-regular upload-button"
+						id="upload-button"
 					>
-						Browse Files
+						Generate
 					</button>
 				</div>
 				{% endif %} {% if file_uploaded and download_url%}
