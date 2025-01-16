@@ -43,7 +43,7 @@ def home(request: HttpRequest):
                 request,
                 "index.html",
                 {
-                    "file_uploaded": f"Error processing file: {e}",
+                    "file_uploaded": "error",
                     "download_url": download_url,
                 },
             )

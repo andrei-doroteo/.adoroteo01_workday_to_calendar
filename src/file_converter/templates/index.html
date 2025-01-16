@@ -157,7 +157,40 @@
 						Generate
 					</button>
 				</div>
-				{% endif %} {% if file_uploaded and download_url%}
+				{% endif %} {% if file_uploaded == "error" %}
+
+				<section class="roboto-light download-schedule-section">
+					<p class="generation-message">Conversion Error :&lt</p>
+					<hr />
+					<div class="roboto-regular download-box">
+						<div class="download-additional-info">
+							<div class="roboto-light file-info">
+								<p>
+									<strong class="roboto-bold">
+										Something went wrong when generating
+										your schedule. This error has been
+										reported and we are working to fix this
+										problem.
+									</strong>
+								</p>
+							</div>
+						</div>
+
+						<div class="next-steps">
+							<a href="">
+								<div class="next-step-box">
+									<img
+										src="{% static 'images/back.svg' %}"
+										alt=""
+									/>
+									<p>Return to Homepage</p>
+								</div>
+							</a>
+						</div>
+					</div>
+				</section>
+
+				{% endif %} {% if file_uploaded and download_url %}
 				<section class="roboto-light download-schedule-section">
 					<p class="generation-message">
 						Calendar Successfully Generated
