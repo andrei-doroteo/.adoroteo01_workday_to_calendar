@@ -44,6 +44,7 @@
 		</header>
 
 		<main>
+			{% if not file_uploaded and not download_url %}
 			<section class="intro">
 				<strong>
 					<p class="convert-schedule-header roboto-regular">
@@ -105,7 +106,6 @@
 			</section>
 
 			<section>
-				{% if not file_uploaded and not download_url %}
 				<form
 					method="post"
 					enctype="multipart/form-data"
@@ -158,19 +158,71 @@
 					</button>
 				</div>
 				{% endif %} {% if file_uploaded and download_url%}
-				<div class="download-schedule-section">
-					<a href="{{ download_url }}"
-						><button class="download-file-button roboto-regular">
-							Download Schedule
-						</button></a
-					>
-					<a
-						class="roboto-light upload-to-calendar disclaimer"
-						href="https://calendar.google.com/calendar/u/0/r/settings/export"
-						target="_blank"
-						>Upload Schedule to Google Calendar</a
-					>
-				</div>
+				<section class="roboto-light download-schedule-section">
+					<p class="generation-message">
+						Calendar Successfully Generated
+					</p>
+					<hr />
+					<div class="roboto-regular download-box">
+						<a
+							href="{{ download_url }} "
+							class="download-button-box"
+							><button
+								class="download-file-button roboto-regular"
+							>
+								Download
+							</button></a
+						>
+
+						<div class="download-additional-info">
+							<div class="roboto-light file-info">
+								<p>
+									<strong class="roboto-bold"
+										>File Name:
+									</strong>
+								</p>
+								<p>
+									<strong class="roboto-bold"
+										>File Type:
+									</strong>
+								</p>
+								<p>
+									<strong class="roboto-bold"
+										>File Size:
+									</strong>
+								</p>
+								<p>
+									<strong class="roboto-bold"
+										>Next Steps:
+									</strong>
+								</p>
+							</div>
+
+							<div class="next-steps">
+								<a
+									href="https://calendar.google.com/calendar/u/0/r/settings/export"
+								>
+									<div class="next-step-box">
+										<img
+											src="{% static 'images/google-calendar.svg' %}"
+											alt=""
+										/>
+										<p>Upload to Google Calendar</p>
+									</div>
+								</a>
+								<a href="">
+									<div class="next-step-box">
+										<img
+											src="{% static 'images/apple-calendar.svg' %}"
+											alt=""
+										/>
+										<p>Upload to Apple Calendar</p>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
 				{% endif %}
 			</section>
 		</main>
