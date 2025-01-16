@@ -44,134 +44,54 @@
 		</header>
 
 		<main>
-			<section class="intro">
-				<strong>
-					<p class="convert-schedule-header roboto-regular">
-						Convert Your Schedule
-					</p>
-				</strong>
-				<p class="roboto-light call-to-action">
-					Upload your UBC schedule from workday to convert it to a
-					calendar file
+			<section class="roboto-light download-schedule-section">
+				<p class="generation-message">
+					Calendar Successfully Generated
 				</p>
-				<a
-					href="https://wd10.myworkday.com/ubc/d/task/2998$28771.htmld"
-					target="_blank"
-					class="roboto-light find-schedule-button"
-				>
-					<p>Find your schedule here</p>
-				</a>
-			</section>
-
-			<section class="instruction-section">
-				<div class="instruction-box">
-					<img
-						src="{% static 'images/open-workday.gif'%}"
-						class="instruction-gif"
-						alt=""
-					/>
-					<p class="roboto-regular">Open Workday</p>
-				</div>
-
-				<img
-					src="{% static 'images/arrow-forward.svg' %}"
-					class="instruction-arrow"
-					alt=""
-				/>
-
-				<div class="instruction-box">
-					<img
-						src="{% static 'images/download-schedule.gif'%}"
-						class="instruction-gif"
-						alt=""
-					/>
-					<p>Download Schedule</p>
-				</div>
-
-				<img
-					src="{% static 'images/arrow-forward.svg' %}"
-					class="instruction-arrow"
-					alt=""
-				/>
-
-				<div class="instruction-box">
-					<img
-						src="{% static 'images/open-workday.gif'%}"
-						class="instruction-gif"
-						alt=""
-					/>
-					<p>Convert</p>
-				</div>
-			</section>
-
-			<section>
-				{% if not file_uploaded and not download_url %}
-				<form
-					method="post"
-					enctype="multipart/form-data"
-					class="file-upload-form"
-					id="file-upload-form"
-				>
-					{% csrf_token %}
-					<div>
-						<div
-							class="browse-files-button"
-							id="browse-files-button"
-						>
-							<p>Or Browse Files</p>
-						</div>
-						<img
-							src="{% static 'images/upload-icon.svg'%}"
-							class="upload-icon"
-							alt=""
-						/>
-						<p class="file-name roboto-bold" id="file-name">
-							<strong>- No File Chosen -</strong>
-						</p>
-						<div class="file-input-div">
-							<label for="file" class="roboto-bold"
-								>Drag and drop file to upload</label
-							>
-							<input
-								id="file-input"
-								type="file"
-								name="file"
-								id="file-input"
-								accept=".xlsx, .xls"
-							/>
-						</div>
-
-						<aside class="roboto-light disclaimer">
-							By using this tool, you agree to our
-							<a href="">Terms of Service.</a>
-						</aside>
-					</div>
-				</form>
-				<div class="upload-button-section">
-					<button
-						type="submit"
-						form="file-upload-form"
-						class="roboto-regular upload-button"
-						id="upload-button"
-					>
-						Generate
-					</button>
-				</div>
-				{% endif %} {% if file_uploaded and download_url%}
-				<div class="download-schedule-section">
-					<a href="{{ download_url }}"
+				<hr />
+				<div class="roboto-regular download-box">
+					<a href="{{ download_url }} " class="download-button-box"
 						><button class="download-file-button roboto-regular">
-							Download Schedule
+							Download
 						</button></a
 					>
-					<a
-						class="roboto-light upload-to-calendar disclaimer"
-						href="https://calendar.google.com/calendar/u/0/r/settings/export"
-						target="_blank"
-						>Upload Schedule to Google Calendar</a
-					>
+
+					<div class="download-additional-info">
+						<div class="roboto-light file-info">
+							<p>
+								<strong class="roboto-bold">File Name: </strong>
+							</p>
+							<p>
+								<strong class="roboto-bold">File Type: </strong>
+							</p>
+							<p>
+								<strong class="roboto-bold">File Size: </strong>
+							</p>
+							<p>
+								<strong class="roboto-bold"
+									>Next Steps:
+								</strong>
+							</p>
+						</div>
+
+						<div class="next-steps">
+							<div class="next-step-box">
+								<img
+									src="{% static 'images/google-calendar.svg' %}"
+									alt=""
+								/>
+								<p>Upload to Google Calendar</p>
+							</div>
+							<div class="next-step-box">
+								<img
+									src="{% static 'images/apple-calendar.svg' %}"
+									alt=""
+								/>
+								<p>Upload to Apple Calendar</p>
+							</div>
+						</div>
+					</div>
 				</div>
-				{% endif %}
 			</section>
 		</main>
 
