@@ -1,0 +1,1 @@
+web: gunicorn calendar_converter.wsgi --env DJANGO_SETTINGS_MODULE=calendar_converter.settings --log-file -

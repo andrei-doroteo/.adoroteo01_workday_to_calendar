@@ -1,0 +1,416 @@
+// ---------------- Colors ----------------
+$light: #f8fafc;
+$accent: #075985;
+$dark: #082f49;
+$background: #f1f5f9;
+$medium: #cbd5e1;
+
+// ---------------- Styles ----------------
+
+// ---------- Page ------------
+
+body {
+	background-color: $background;
+}
+
+main {
+	padding: 0px 156px;
+}
+
+// -------------- Header ----------
+
+header {
+	background-color: $light;
+	flex-direction: column;
+	align-items: end;
+	box-shadow: 0px 2px 5px 0px rgba(#000000, 0.25);
+}
+
+.header-logo {
+	width: 33%;
+	height: auto;
+}
+
+// ------------------ Body -----------------
+
+.intro {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+	margin-top: 230px;
+
+	text-align: center;
+	color: $dark;
+}
+
+.convert-schedule-header {
+	font-size: 2.5rem;
+	line-height: var(--Label-Large-Line-Height, 1.25rem);
+	letter-spacing: var(--Label-Large-Tracking, 0.00625rem);
+}
+
+.call-to-action {
+	font-size: 1rem;
+	line-height: 1.25rem;
+	letter-spacing: 0.00625rem;
+
+	margin: 0px 415px;
+	margin-top: 1.25rem;
+}
+
+.find-schedule-button {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	font-size: 0.75rem;
+	line-height: 1.25rem; /* 166.667% */
+	letter-spacing: 0.00625rem;
+	text-decoration-line: underline;
+	text-decoration-style: solid;
+	text-decoration-skip-ink: none;
+	text-decoration-thickness: auto;
+	text-underline-offset: auto;
+	text-underline-position: from-font;
+
+	width: 9.9375rem;
+	height: 1.875rem;
+	border-radius: 0.625rem;
+
+	background: $accent;
+	color: $light;
+
+	margin-top: 2.12rem;
+}
+
+.instruction-section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1.12rem;
+	color: $dark;
+
+	margin-top: 3.5rem;
+}
+
+.instruction-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.63rem;
+
+	font-size: 1rem;
+}
+
+.instruction-gif {
+	width: 15rem;
+	max-width: 300px;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.instruction-arrow {
+	width: 46px;
+}
+
+.file-upload-form {
+	position: relative;
+	width: 100%;
+	padding: 6.5rem 0;
+	max-height: 404px;
+
+	color: $dark;
+	background-color: $medium;
+	border: 1px dashed $dark;
+	border-radius: 20px;
+
+	align-items: center;
+	justify-content: center;
+
+	text-align: center;
+	font-size: 1rem;
+
+	margin-top: 3.2rem;
+}
+
+.file-upload-form.over {
+	background-color: $accent;
+}
+
+.browse-files-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	width: 15.6875rem;
+	height: 4rem;
+	top: 20px;
+	right: 20px;
+	color: $dark;
+	cursor: pointer;
+	border-radius: 1.25rem;
+	border: 1px dashed var(--Dark, #082f49);
+	background: var(--Medium, #cbd5e1);
+}
+
+.browse-files-button:hover {
+	background-color: $dark;
+	color: $light;
+}
+
+.browse-files-button.over {
+	background-color: $accent;
+}
+
+.upload-icon {
+	width: 2.9375rem;
+	height: 2.84938rem;
+}
+
+.file-name {
+	margin-top: 0.37rem;
+	line-height: var(--Label-Large-Line-Height, 1.25rem); /* 142.857% */
+	letter-spacing: var(--Label-Large-Tracking, 0.00625rem);
+}
+
+.file-input-div {
+	margin-top: 0.25rem;
+	line-height: var(--Label-Large-Line-Height, 1.25rem); /* 142.857% */
+	letter-spacing: var(--Label-Large-Tracking, 0.00625rem);
+}
+
+#file-input {
+	display: none;
+}
+
+.disclaimer {
+	font-size: 0.625rem;
+	line-height: 1.25rem; /* 200% */
+	letter-spacing: 0.00625rem;
+}
+
+.upload-button-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	margin-top: 1.88rem;
+}
+
+.upload-button {
+	width: 17.4375rem;
+	height: 3.75rem;
+
+	border-radius: 2.4375rem;
+	background: $accent;
+	color: $light;
+
+	cursor: pointer;
+
+	font-size: 1rem;
+}
+
+.upload-button:hover {
+	background-color: $dark;
+}
+
+.download-schedule-section {
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+	justify-content: center;
+}
+
+.download-schedule-section {
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+	justify-content: center;
+
+	margin-top: 230px;
+}
+
+.download-schedule-section hr {
+	width: 44.5625rem;
+	border: 0.0625rem solid $dark;
+}
+
+.generation-message {
+	color: $dark;
+	text-align: center;
+	font-size: 2rem;
+	line-height: var(--Label-Large-Line-Height, 1.25rem); /* 62.5% */
+	letter-spacing: var(--Label-Large-Tracking, 0.00625rem);
+}
+
+.download-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: start;
+	gap: 3.2rem;
+
+	width: 48.6875rem;
+	height: 18.875rem;
+	border: 1px dashed $dark;
+	background-color: $medium;
+}
+
+.download-button-box {
+	margin-top: 1.25rem;
+}
+
+.download-file-button {
+	width: 35.25rem;
+	height: 2.5rem;
+	background-color: $accent;
+	color: $light;
+
+	font-size: 0.875rem;
+	line-height: var(--Label-Large-Line-Height, 1.25rem); /* 142.857% */
+	letter-spacing: var(--Label-Large-Tracking, 0.00625rem);
+
+	border-radius: 0.75rem;
+}
+
+.download-file-button:hover {
+	background-color: $dark;
+	cursor: pointer;
+}
+
+.download-additional-info {
+	width: 724px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.file-info {
+	display: flex;
+	flex-direction: column;
+	font-size: 1rem;
+	line-height: 1.875rem; /* 187.5% */
+	letter-spacing: 0.125rem;
+}
+
+.next-steps {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: center;
+	gap: 1.06rem;
+}
+
+.next-step-box {
+	display: inline-flex;
+	padding: 0.75rem 1.5rem 0.75rem 0.8125rem;
+	align-items: center;
+	border-radius: 0.75rem;
+	gap: 1.5rem;
+	width: 16.5rem;
+
+	background-color: $light;
+	color: $dark;
+}
+
+.next-step-box:hover {
+	background-color: $dark;
+	color: $light;
+}
+
+// ----------- Footer ------------
+
+footer {
+	margin-top: 100px;
+	padding-top: 280px;
+	text-align: end;
+	background-color: $accent;
+	color: $light;
+}
+
+.footer-content {
+	padding: 0px 1.56rem;
+	padding-bottom: 0.7rem;
+
+	font-size: 0.75rem;
+}
+
+// ---------------- FONTS ----------------
+
+.roboto-thin {
+	font-family: "Roboto", sans-serif;
+	font-weight: 100;
+	font-style: normal;
+}
+
+.roboto-light {
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+	font-style: normal;
+}
+
+.roboto-regular {
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.roboto-medium {
+	font-family: "Roboto", sans-serif;
+	font-weight: 500;
+	font-style: normal;
+}
+
+.roboto-bold {
+	font-family: "Roboto", sans-serif;
+	font-weight: 700;
+	font-style: normal;
+}
+
+.roboto-black {
+	font-family: "Roboto", sans-serif;
+	font-weight: 900;
+	font-style: normal;
+}
+
+.roboto-thin-italic {
+	font-family: "Roboto", sans-serif;
+	font-weight: 100;
+	font-style: italic;
+}
+
+.roboto-light-italic {
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+	font-style: italic;
+}
+
+.roboto-regular-italic {
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	font-style: italic;
+}
+
+.roboto-medium-italic {
+	font-family: "Roboto", sans-serif;
+	font-weight: 500;
+	font-style: italic;
+}
+
+.roboto-bold-italic {
+	font-family: "Roboto", sans-serif;
+	font-weight: 700;
+	font-style: italic;
+}
+
+.roboto-black-italic {
+	font-family: "Roboto", sans-serif;
+	font-weight: 900;
+	font-style: italic;
+}

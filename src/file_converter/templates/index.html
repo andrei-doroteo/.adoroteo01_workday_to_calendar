@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% load static %}
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+		rel="stylesheet"
+	/>
+
+	<head>
+		<!-- Google tag (gtag.js) -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-CHS77PS4KW"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+
+			gtag("config", "G-CHS77PS4KW");
+		</script>
+		<!-- -------------------- -->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- Styles -->
+		<link rel="stylesheet" href="{% static 'styles/reset.css' %}" />
+		<!-- Eric Meyer's Reset -->
+		<link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+		<!-- ------ -->
+		<title>UBC Schedule Converter</title>
+	</head>
+
+	<body class="roboto-regular">
+		<header>
+			<img
+				class="header-logo"
+				src="{% static 'images/logo-2.svg' %}"
+				alt="UBC Schedule Converter Logo"
+			/>
+		</header>
+
+		<main>
+			{% if not file_uploaded and not download_url %}
+			<section>
+				<section class="intro">
+					<strong>
+						<p class="convert-schedule-header roboto-regular">
+							Convert Your Schedule
+						</p>
+					</strong>
+					<p class="roboto-light call-to-action">
+						Upload your UBC schedule from workday to convert it to a
+						calendar file
+					</p>
+					<a
+						href="https://wd10.myworkday.com/ubc/d/task/2998$28771.htmld"
+						target="_blank"
+						class="roboto-light find-schedule-button"
+					>
+						<p>Find your schedule here</p>
+					</a>
+				</section>
+
+				<section class="instruction-section">
+					<div class="instruction-box">
+						<img
+							src="{% static 'images/open-workday.gif'%}"
+							class="instruction-gif"
+							alt=""
+						/>
+						<p class="roboto-regular">Open Workday</p>
+					</div>
+
+					<img
+						src="{% static 'images/arrow-forward.svg' %}"
+						class="instruction-arrow"
+						alt=""
+					/>
+
+					<div class="instruction-box">
+						<img
+							src="{% static 'images/download-schedule.gif'%}"
+							class="instruction-gif"
+							alt=""
+						/>
+						<p>Download Schedule</p>
+					</div>
+
+					<img
+						src="{% static 'images/arrow-forward.svg' %}"
+						class="instruction-arrow"
+						alt=""
+					/>
+
+					<div class="instruction-box">
+						<img
+							src="{% static 'images/convert-schedule.gif'%}"
+							class="instruction-gif"
+							alt=""
+						/>
+						<p>Convert</p>
+					</div>
+				</section>
+
+				<section>
+					<form
+						method="post"
+						enctype="multipart/form-data"
+						class="file-upload-form"
+						id="file-upload-form"
+					>
+						{% csrf_token %}
+						<div>
+							<div
+								class="browse-files-button"
+								id="browse-files-button"
+							>
+								<p>Or Browse Files</p>
+							</div>
+							<img
+								src="{% static 'images/upload-icon.svg'%}"
+								class="upload-icon"
+								alt=""
+							/>
+							<p class="file-name roboto-bold" id="file-name">
+								<strong>- No File Chosen -</strong>
+							</p>
+							<div class="file-input-div">
+								<label for="file" class="roboto-bold"
+									>Drag and drop file to upload</label
+								>
+								<input
+									id="file-input"
+									type="file"
+									name="file"
+									id="file-input"
+									accept=".xlsx, .xls"
+								/>
+							</div>
+
+							<aside class="roboto-light disclaimer">
+								By using this tool, you agree to our
+								<a href="">Terms of Service.</a>
+							</aside>
+						</div>
+					</form>
+					<div class="upload-button-section">
+						<button
+							type="submit"
+							form="file-upload-form"
+							class="roboto-regular upload-button"
+							id="upload-button"
+						>
+							Generate
+						</button>
+					</div>
+				</section>
+			</section>
+			<script src="{% static 'scripts/drag-and-drop.js' %}"></script>
+			{% elif file_uploaded == "error" %}
+			<section>
+				<section class="roboto-light download-schedule-section">
+					<p class="generation-message">Conversion Error :&lt</p>
+					<hr />
+					<div class="roboto-regular download-box">
+						<div class="download-additional-info">
+							<div class="roboto-light file-info">
+								<p>
+									<strong class="roboto-bold">
+										Something went wrong when generating
+										your schedule. This error has been
+										reported and we are working to fix this
+										problem.
+									</strong>
+								</p>
+							</div>
+						</div>
+
+						<div class="next-steps">
+							<a href="">
+								<div class="next-step-box">
+									<img
+										src="{% static 'images/back.svg' %}"
+										alt=""
+									/>
+									<p>Return to Homepage</p>
+								</div>
+							</a>
+						</div>
+					</div>
+				</section>
+			</section>
+			{% elif file_uploaded and download_url %}
+			<section class="roboto-light download-schedule-section">
+				<p class="generation-message">
+					Calendar Successfully Generated
+				</p>
+				<hr />
+				<div class="roboto-regular download-box">
+					<a
+						href="{{ download_url }} "
+						id="download-button"
+						class="download-button-box"
+						><button class="download-file-button roboto-regular">
+							Download
+						</button></a
+					>
+
+					<div class="download-additional-info">
+						<div class="roboto-light file-info">
+							<p>
+								<strong class="roboto-bold">File Name: </strong>
+								schedule.ics
+							</p>
+							<p>
+								<strong class="roboto-bold">File Type: </strong>
+								.ics
+							</p>
+							<p>
+								<strong class="roboto-bold">File Size: </strong>
+								KB
+							</p>
+							<p>
+								<strong class="roboto-bold"
+									>Next Steps:
+								</strong>
+							</p>
+						</div>
+
+						<div class="next-steps">
+							<a
+								href="https://calendar.google.com/calendar/u/0/r/settings/export"
+								id="upload-to-google-calendar-button"
+							>
+								<div class="next-step-box">
+									<img
+										src="{% static 'images/google-calendar.svg' %}"
+										alt=""
+									/>
+									<p>Upload to Google Calendar</p>
+								</div>
+							</a>
+							<a href="">
+								<div class="next-step-box">
+									<img
+										src="{% static 'images/back.svg' %}"
+										alt=""
+									/>
+									<p>Return to Homepage</p>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<script src="{% static 'scripts/download-file.js' %}"></script>
+			{% endif %}
+		</main>
+
+		<footer>
+			<section class="footer-content">
+				<p class="roboto-light disclaimer">
+					This tool is not affiliated with The University of British
+					Columbia.
+				</p>
+			</section>
+		</footer>
+	</body>
+</html>
